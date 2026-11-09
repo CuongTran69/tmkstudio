@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TMK Studio — Apple Native Apps by Cuong Tran</title>
+  <meta name="description" content="TMK Studio — 7 ứng dụng Apple native local-first: thiền trà, ca dao, bus, nhật ký gia đình, màu sắc, ghi chú và trang trại. Không quảng cáo, offline, riêng tư tuyệt đối.">
+  <meta property="og:title" content="TMK Studio — Apple Native Apps">
+  <meta property="og:description" content="7 ứng dụng Apple độc lập, local-first, tinh tế cho người Việt.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"TMK Studio","founder":{"@type":"Person","name":"Tran Cuong"},"description":"7 Apple native local-first apps for Vietnamese everyday life."}
+  </script>
+
+  <!-- Declarative color-scheme for FOUC prevention (modern-web-guidance) -->
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function() {
+      const saved = localStorage.getItem("color-scheme");
+      if (saved) {
+        document.querySelector('meta[name="color-scheme"]').content = saved;
+        if (saved === 'dark' || (saved === 'light dark' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            apple: {
+              blue: '#0071e3',
+              gray: '#86868b',
+              dark: '#1d1d1f'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Craft Stylesheet & TMK Favicons -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/tmk-logo.svg">
+  <link rel="alternate icon" type="image/png" href="assets/icons/tmk-studio-128.png">
+</head>
+<body class="bg-grain min-h-screen text-zinc-900 dark:text-zinc-100 selection:bg-blue-600 selection:text-white transition-colors duration-200">
+
+  <!-- Ambient Dot Matrix Grid -->
+  <div class="fixed inset-0 bg-dot-grid pointer-events-none -z-10 opacity-70"></div>
+
+  <!-- =========================================================================
+       Floating Glass Header
+       ========================================================================= -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-zinc-950/70 border-b border-black/5 dark:border-white/10 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Studio Identity -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img 
+          src="assets/icons/tmk-logo.svg" 
+          alt="TMK Studio Logo" 
+          class="w-9 h-9 app-squircle shadow-sm group-hover:scale-105 transition-transform flex-shrink-0"
+        />
+        <div>
+          <span class="font-bold text-sm tracking-tight text-zinc-900 dark:text-white block leading-none" data-i18n="brandName">
+            TMK Studio
+          </span>
+          <span class="text-[10px] uppercase tracking-wider font-semibold text-zinc-400 dark:text-zinc-500 block mt-1" data-i18n="byCreator">
+            Sản phẩm được tạo bởi Trần Cường
+          </span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+        <a href="#showcase" class="hover:text-zinc-900 dark:hover:text-white transition-colors" data-i18n="navWork">Hệ Sinh Thái</a>
+        <a href="#values" class="hover:text-zinc-900 dark:hover:text-white transition-colors" data-i18n="navValues">Triết Lý</a>
+        <a href="#creator" class="hover:text-zinc-900 dark:hover:text-white transition-colors" data-i18n="navCreator">Tác Giả</a>
+      </nav>
+
+      <!-- Control Center: App Store & Language & Theme -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <!-- Direct App Store Developer Profile -->
+        <a 
+          href="https://apps.apple.com/vn/developer/tran-cuong/id1869197483" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors text-xs font-semibold text-zinc-700 dark:text-zinc-300"
+          title="Xem trang tác giả Trần Cường trên App Store"
+        >
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+          </svg>
+          <span>App Store</span>
+        </a>
+        <!-- Bilingual Button -->
+        <button 
+          id="lang-toggle-btn" 
+          type="button" 
+          class="px-2.5 sm:px-3 py-1.5 rounded-full border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors flex items-center gap-1.5 flex-shrink-0"
+          aria-label="Switch Language"
+        >
+          <span class="text-xs font-semibold tracking-wider"><span class="sm:hidden">🇻🇳 VI</span><span class="hidden sm:inline">🇻🇳 VIỆT NAM</span></span>
+        </button>
+
+        <!-- Theme Switcher -->
+        <button 
+          id="theme-toggle-btn" 
+          type="button" 
+          class="p-2 rounded-full border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+          aria-label="Toggle Theme"
+        >
+          <!-- SVG icon injected by JS -->
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       Hero Section
+       ========================================================================= -->
+  <section class="relative pt-20 pb-14 sm:pt-28 sm:pb-20 overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <!-- Subtle Pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-zinc-900/60 shadow-sm text-[11px] font-bold uppercase tracking-widest text-zinc-600 dark:text-zinc-300 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span data-i18n="heroPill">Apple Native · 100% Local-First · Tinh Tế Cho Người Việt</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-zinc-900 dark:text-white leading-[1.15] mb-4 sm:mb-6" data-i18n="heroTitle">
+        Ứng Dụng Tinh Tế, Phục Vụ Trọn Vẹn Đời Sống Việt
+      </h1>
+
+      <!-- Lead Paragraph -->
+      <p class="text-sm sm:text-lg text-zinc-600 dark:text-zinc-300 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-normal" data-i18n="heroLead">
+        Bộ sưu tập 7 ứng dụng độc lập được thiết kế tỉ mỉ cho hệ sinh thái Apple. Tôn trọng quyền riêng tư tuyệt đối, hoạt động offline mượt mà và mang đậm nét đẹp đời sống Việt.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-14">
+        <a 
+          href="#showcase" 
+          class="w-full sm:w-auto py-3.5 px-7 rounded-2xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-all shadow-md flex items-center justify-center gap-2"
+          data-i18n="heroCtaPrimary"
+        >
+          <span>Khám Phá 7 Ứng Dụng</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+        <a 
+          href="#values" 
+          class="w-full sm:w-auto py-3.5 px-7 rounded-2xl text-xs font-bold uppercase tracking-wider border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-zinc-700 dark:text-zinc-300"
+          data-i18n="heroCtaSecondary"
+        >
+          Đọc Triết Lý Sản Phẩm
+        </a>
+      </div>
+
+      <!-- Tactile Stat Metrics Bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto pt-6 border-t border-black/5 dark:border-white/10">
+        <div class="p-3 rounded-2xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-zinc-900/40 text-center">
+          <span class="text-xs font-bold text-zinc-900 dark:text-white block" data-i18n="statItem1">7 Ứng Dụng Độc Lập</span>
+        </div>
+        <div class="p-3 rounded-2xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-zinc-900/40 text-center">
+          <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 block" data-i18n="statItem2">Không Quảng Cáo Rác</span>
+        </div>
+        <div class="p-3 rounded-2xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-zinc-900/40 text-center">
+          <span class="text-xs font-bold text-blue-600 dark:text-blue-400 block" data-i18n="statItem3">100% Local-First</span>
+        </div>
+        <div class="p-3 rounded-2xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-zinc-900/40 text-center">
+          <span class="text-xs font-bold text-zinc-900 dark:text-white block" data-i18n="statItem4">Apple Native Swift</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SHOWCASE SECTION (ALL 7 APPS IN UNIFIED GRAND BENTO FORMAT)
+       ========================================================================= -->
+  <section id="showcase" class="py-16 sm:py-24 border-t border-black/5 dark:border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header & Filter Tabs -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 max-w-5xl mx-auto">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-2 block" data-i18n="bentoHeaderTitle">
+            Bento Showcase
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-zinc-900 dark:text-white" data-i18n="bentoHeaderSub">
+            Mỗi ứng dụng giải quyết trọn vẹn một nhu cầu trong đời sống.
+          </h2>
+        </div>
+
+        <!-- Filter Segmented Control -->
+        <div class="inline-flex p-1.5 rounded-2xl border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 backdrop-blur-md self-start md:self-auto overflow-x-auto scrollbar-none">
+          <button 
+            type="button" 
+            data-bento-filter="all" 
+            class="active text-xs font-semibold px-4 py-2 rounded-xl transition-all bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-sm whitespace-nowrap"
+            data-i18n="filterAll"
+          >
+            Tất cả (7)
+          </button>
+          <button 
+            type="button" 
+            data-bento-filter="culture" 
+            class="text-xs font-semibold px-4 py-2 rounded-xl transition-all text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white whitespace-nowrap"
+            data-i18n="filterCulture"
+          >
+            Văn hóa & Tâm hồn
+          </button>
+          <button 
+            type="button" 
+            data-bento-filter="productivity" 
+            class="text-xs font-semibold px-4 py-2 rounded-xl transition-all text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white whitespace-nowrap"
+            data-i18n="filterProductivity"
+          >
+            Năng suất & Tiện ích
+          </button>
+          <button 
+            type="button" 
+            data-bento-filter="life" 
+            class="text-xs font-semibold px-4 py-2 rounded-xl transition-all text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white whitespace-nowrap"
+            data-i18n="filterLife"
+          >
+            Đời sống & Thực tế
+          </button>
+        </div>
+      </div>
+
+      <!-- App Showcase Cards List (All 7 in Grand Hero Format) -->
+      <div class="space-y-8 max-w-5xl mx-auto">
+        
+        <!-- ===================================================================
+             CARD: TRẠM THIỀN TRÀ
+             =================================================================== -->
+        <article 
+          data-app-id="tram-thien-tra"
+          data-app-category="culture" 
+          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-amber-500/25 hover:border-amber-500/60 transition-all duration-500"
+        >
+          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
+          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
+            <img 
+              src="assets/banners/tram-thien-tra-header.jpg" 
+              alt="Trạm Thiền Trà Artwork" 
+              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
+              loading="lazy"
+            />
+            <!-- Desktop horizontal gradient (solid left, transparent right) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
+            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
+          </div>
+
+          <!-- Top Meta Row & Left Content -->
+          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img 
+                  src="assets/icons/tram-thien-tra.png" 
+                  alt="Trạm Thiền Trà icon" 
+                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
+                />
+                <div>
+                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border-amber-500/30 border">
+                      01 / 07 · Văn Hóa & Mindfulness
+                    </span>
+                    <span class="text-xs font-mono text-zinc-400">iOS 16.0+</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
+                    Trạm Thiền Trà
+                  </h3>
+                  <p class="text-xs font-mono text-zinc-400 mt-0.5">com.tramthientra.app · v1.0.4</p>
+                </div>
+              </div>
+
+              <!-- Context Status Pill -->
+              <span id="tea-time-phase" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-200 border-amber-500/25 backdrop-blur-md text-xs font-medium border">
+                Trà Thất · Sớm Mai 🍵
+              </span>
+            </div>
+
+            <!-- Quote Tagline -->
+            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
+              “Mỗi ngày, một tách trà… Buông bỏ muộn phiền, tích lũy an vui.”
+            </blockquote>
+            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
+              Thiền trà và nhật ký biết ơn lấy cảm hứng từ văn hóa trà Shan tuyết Tây Bắc. Trà Thất bốc khói bằng SwiftUI Canvas tự đổi màu theo 6 khung giờ thực tế.
+            </p>
+
+            <!-- Dual Feature Callouts -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-amber-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">Nghi thức Buông Bỏ</span>
+                <p class="text-xs text-zinc-300">Viết phiền muộn rồi buông tan như khói trà. Hoàn toàn riêng tư, không lưu dữ liệu.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-emerald-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block mb-1">Nghi thức Tích Luỹ</span>
+                <p class="text-xs text-zinc-300">Ghi lại 3 điều biết ơn mỗi ngày; mầm trà Cây Thiền (Streak) lớn dần qua thời gian.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+              <button 
+                type="button" 
+                onclick="openAppDetail('tram-thien-tra', event)"
+                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-amber-100 transition-all flex items-center gap-2 shadow-sm"
+              >
+                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <a 
+                href="https://apps.apple.com/vn/app/tr%E1%BA%A1m-thi%E1%BB%81n-tr%C3%A0/id6763527107"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-1.5 shadow-sm"
+                title="Tải Trạm Thiền Trà trên App Store"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+                </svg>
+                <span>App Store</span>
+              </a>
+            </div>
+            <span class="text-[11px] font-mono text-zinc-400">100% Local-First · SwiftData · SwiftUI Canvas</span>
+          </div>
+        </article>
+
+        <!-- ===================================================================
+             CARD: LỜI XƯA — CADAOVIET
+             =================================================================== -->
+        <article 
+          data-app-id="loi-xua"
+          data-app-category="culture" 
+          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-rose-500/25 hover:border-rose-500/60 transition-all duration-500"
+        >
+          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
+          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
+            <img 
+              src="assets/banners/loi-xua-header.png" 
+              alt="Lời Xưa — CaDaoViet Artwork" 
+              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
+              loading="lazy"
+            />
+            <!-- Desktop horizontal gradient (solid left, transparent right) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
+            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
+          </div>
+
+          <!-- Top Meta Row & Left Content -->
+          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img 
+                  src="assets/icons/loi-xua.png" 
+                  alt="Lời Xưa — CaDaoViet icon" 
+                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
+                />
+                <div>
+                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-300 border-rose-500/30 border">
+                      02 / 07 · Kho Tàng Dân Gian
+                    </span>
+                    <span class="text-xs font-mono text-zinc-400">iOS 17.0+</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
+                    Lời Xưa — CaDaoViet
+                  </h3>
+                  <p class="text-xs font-mono text-zinc-400 mt-0.5">com.cuongtran.CaDaoViet · v1.0.2</p>
+                </div>
+              </div>
+
+              <!-- Context Status Pill -->
+              <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 text-rose-200 border-rose-500/25 backdrop-blur-md text-xs font-medium border">
+                Quẻ Tre Đầu Ngày 🎋
+              </span>
+            </div>
+
+            <!-- Quote Tagline -->
+            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
+              “Mỗi ngày một câu hay — Khi cần tra cứu, khi tò mò khám phá văn hóa Việt.”
+            </blockquote>
+            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
+              Kho tàng ca dao, tục ngữ, thành ngữ Việt Nam với typography New York thanh tịnh, gieo quẻ tre chữa lành, tra cứu không dấu và âm thanh Zen đồng quê.
+            </p>
+
+            <!-- Dual Feature Callouts -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-rose-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 block mb-1">Gieo Quẻ Ca Dao (Oracle)</span>
+                <p class="text-xs text-zinc-300">Lắc ống thẻ tre xin lời dặn tiền nhân theo 6 tâm nguyện: Cầu An, Tình Duyên, Công Danh, Gia Đạo...</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-amber-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">Tra Cứu Không Dấu & AI TTS</span>
+                <p class="text-xs text-zinc-300">Tìm kiếm cực nhanh bỏ qua dấu thanh và ký tự đ/Đ; nghe giọng đọc AI offline và xuất thiệp Story 9:16.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+              <button 
+                type="button" 
+                onclick="openAppDetail('loi-xua', event)"
+                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-rose-100 transition-all flex items-center gap-2 shadow-sm"
+              >
+                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <a 
+                href="https://apps.apple.com/vn/app/l%E1%BB%9Di-x%C6%B0a/id6820905528"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-1.5 shadow-sm"
+                title="Tải Lời Xưa trên App Store"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+                </svg>
+                <span>App Store</span>
+              </a>
+            </div>
+            <span class="text-[11px] font-mono text-zinc-400">100% Offline · AVSpeechSynthesizer · Typography New York</span>
+          </div>
+        </article>
+
+        <!-- ===================================================================
+             CARD: BUS CHILL — BUS COMPANION
+             =================================================================== -->
+        <article 
+          data-app-id="bus-chill"
+          data-app-category="life" 
+          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-emerald-500/25 hover:border-emerald-500/60 transition-all duration-500"
+        >
+          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
+          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
+            <img 
+              src="assets/banners/bus-chill-header.png" 
+              alt="Bus Chill — Bus Companion Artwork" 
+              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
+              loading="lazy"
+            />
+            <!-- Desktop horizontal gradient (solid left, transparent right) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
+            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
+          </div>
+
+          <!-- Top Meta Row & Left Content -->
+          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img 
+                  src="assets/icons/bus-chill.png" 
+                  alt="Bus Chill — Bus Companion icon" 
+                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
+                />
+                <div>
+                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
+                      03 / 07 · Smart Transit
+                    </span>
+                    <span class="text-xs font-mono text-zinc-400">iOS 16.2+ & watchOS</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
+                    Bus Chill — Bus Companion
+                  </h3>
+                  <p class="text-xs font-mono text-zinc-400 mt-0.5">com.cuongtran.BusCompanion · v1.0.1</p>
+                </div>
+              </div>
+
+              <!-- Context Status Pill -->
+              <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-200 border-emerald-500/25 backdrop-blur-md text-xs font-medium border">
+                Hà Nội Transit · Lộ Trình 138+ 🚌
+              </span>
+            </div>
+
+            <!-- Quote Tagline -->
+            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
+              “Đi buýt thảnh thơi, không lo lỡ trạm — Bạn đồng hành xe buýt thông minh.”
+            </blockquote>
+            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
+              Ứng dụng trợ lý xe buýt offline-first cho Hà Nội. Báo thức thông minh chống ngủ quên bằng AlarmKit native và rung cổ tay tiện lợi trên Apple Watch.
+            </p>
+
+            <!-- Dual Feature Callouts -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-emerald-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block mb-1">Báo Thức Chống Ngủ Quên</span>
+                <p class="text-xs text-zinc-300">Báo trước 2 trạm bằng AlarmKit native + Geofence + countdown dự phòng ngay cả khi mất sóng GPS dưới hầm.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-teal-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-400 block mb-1">138+ Tuyến Buýt Offline</span>
+                <p class="text-xs text-zinc-300">Toàn bộ lộ trình và biểu đồ giờ nằm sẵn trong SQLite trên máy; hỗ trợ Live Activity và Apple Watch.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+              <button 
+                type="button" 
+                onclick="openAppDetail('bus-chill', event)"
+                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-emerald-100 transition-all flex items-center gap-2 shadow-sm"
+              >
+                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <a 
+                href="https://apps.apple.com/vn/app/bus-chill/id6787012016"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-1.5 shadow-sm"
+                title="Tải Bus Chill trên App Store"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+                </svg>
+                <span>App Store</span>
+              </a>
+            </div>
+            <span class="text-[11px] font-mono text-zinc-400">AlarmKit · GRDB SQLite · ActivityKit & watchOS</span>
+          </div>
+        </article>
+
+                <!-- ===================================================================
+             CARD: FAM DIARY — PRIVATE DIGITAL FAMILY DIARY
+             =================================================================== -->
+        <article 
+          data-app-id="fam-diary"
+          data-app-category="life" 
+          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-rose-500/25 hover:border-rose-500/60 transition-all duration-500"
+        >
+          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
+          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
+            <img 
+              src="assets/banners/fam-diary-header.png" 
+              alt="Fam Diary Artwork" 
+              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
+              loading="lazy"
+            />
+            <!-- Desktop horizontal gradient (solid left, transparent right) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
+            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
+          </div>
+
+          <!-- Top Meta Row & Left Content -->
+          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img 
+                  src="assets/icons/fam-diary.png" 
+                  alt="Fam Diary icon" 
+                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
+                />
+                <div>
+                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-300 border-rose-500/30 border">
+                      04 / 07 · Gia Đình & Bảo Mật AES-256
+                    </span>
+                    <span class="text-xs font-mono text-zinc-400">iOS 17.0+</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
+                    Fam Diary
+                  </h3>
+                  <p class="text-xs font-mono text-zinc-400 mt-0.5">app.FamDiary · v1.0</p>
+                </div>
+              </div>
+
+              <!-- Context Status Pill -->
+              <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 text-rose-200 border-rose-500/25 backdrop-blur-md text-xs font-medium border">
+                Bảo Mật · AES-256-GCM 🔒
+              </span>
+            </div>
+
+            <!-- Quote Tagline -->
+            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
+              “Nhật ký số an toàn cho cả gia đình — Lưu giữ khoảnh khắc, bảo mật tuyệt đối.”
+            </blockquote>
+            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
+              Sổ tay gia đình bảo mật cao: lưu sự kiện, lịch khám bệnh, hồ sơ sức khỏe, tài liệu và hình ảnh riêng cho từng thành viên, nhắc nhở thông minh và hoạt động 100% offline.
+            </p>
+
+            <!-- Dual Feature Callouts -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-rose-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 block mb-1">Hồ Sơ Riêng Từng Thành Viên</span>
+                <p class="text-xs text-zinc-300">Tạo hồ sơ độc lập cho bố mẹ, con cái và ông bà; quản lý sự kiện, giấy tờ y tế và ảnh riêng cho từng người.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-amber-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">Mã Hóa AES-256-GCM Cục Bộ</span>
+                <p class="text-xs text-zinc-300">Dữ liệu và ảnh chụp lưu trữ cục bộ an toàn trên máy, tuyệt đối không bao giờ gửi ra máy chủ ngoài.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+              <button 
+                type="button" 
+                onclick="openAppDetail('fam-diary', event)"
+                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-rose-100 transition-all flex items-center gap-2 shadow-sm"
+              >
+                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <a 
+                href="https://apps.apple.com/vn/app/fam-diary/id6761100455"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-1.5 shadow-sm"
+                title="Tải Fam Diary trên App Store"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+                </svg>
+                <span>App Store</span>
+              </a>
+            </div>
+            <span class="text-[11px] font-mono text-zinc-400">100% Local-First · SwiftData · AES-256 Cryptography</span>
+          </div>
+        </article>
+
+        <!-- ===================================================================
+             CARD: PALETTO — COLOR STUDIO
+             =================================================================== -->
+        <article 
+          data-app-id="paletto"
+          data-app-category="productivity" 
+          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-violet-500/25 hover:border-violet-500/60 transition-all duration-500"
+        >
+          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
+          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
+            <img 
+              src="assets/banners/paletto-header.png" 
+              alt="Paletto — Color Studio Artwork" 
+              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
+              loading="lazy"
+            />
+            <!-- Desktop horizontal gradient (solid left, transparent right) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
+            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
+          </div>
+
+          <!-- Top Meta Row & Left Content -->
+          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img 
+                  src="assets/icons/paletto.png" 
+                  alt="Paletto — Color Studio icon" 
+                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
+                />
+                <div>
+                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-violet-500/15 text-violet-300 border-violet-500/30 border">
+                      05 / 07 · Color Studio & Dev Tools
+                    </span>
+                    <span class="text-xs font-mono text-zinc-400">iOS 17.0+</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
+                    Paletto — Color Studio
+                  </h3>
+                  <p class="text-xs font-mono text-zinc-400 mt-0.5">com.paletto.app · v1.2</p>
+                </div>
+              </div>
+
+              <!-- Context Status Pill -->
+              <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-violet-500/10 text-violet-200 border-violet-500/25 backdrop-blur-md text-xs font-medium border">
+                WCAG 2.1 AAA Pass · 15.4:1 🎨
+              </span>
+            </div>
+
+            <!-- Quote Tagline -->
+            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
+              “Trích xuất, tạo lập và quản lý bảng màu chuyên nghiệp trên iOS.”
+            </blockquote>
+            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
+              Bộ công cụ màu sắc cho Designer và Developer: trích xuất K-Means từ ảnh, chấm màu camera thời gian thực, kiểm tra tương phản WCAG 2.1 và xuất code 7+ định dạng.
+            </p>
+
+            <!-- Dual Feature Callouts -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-violet-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-violet-400 block mb-1">K-Means & Kính Lúp Loupe</span>
+                <p class="text-xs text-zinc-300">Phân tích dải màu chủ đạo từ ảnh kèm kính lúp Loupe phóng to từng pixel; bắt mã màu trực tiếp ngoài đời qua camera.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-fuchsia-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-fuchsia-400 block mb-1">Chuẩn WCAG & Xuất Code 7+ Định Dạng</span>
+                <p class="text-xs text-zinc-300">Đo tỉ lệ tương phản chữ/nền chuẩn AA/AAA; xuất code 1 chạm cho SwiftUI, Tailwind CSS, Compose, JSON.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+              <button 
+                type="button" 
+                onclick="openAppDetail('paletto', event)"
+                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-violet-100 transition-all flex items-center gap-2 shadow-sm"
+              >
+                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <a 
+                href="https://apps.apple.com/vn/app/paletto/id6760658459"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-1.5 shadow-sm"
+                title="Tải Paletto trên App Store"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+                </svg>
+                <span>App Store</span>
+              </a>
+            </div>
+            <span class="text-[11px] font-mono text-zinc-400">App Group · WidgetKit · AVFoundation · SwiftUI</span>
+          </div>
+        </article>
+
+        <!-- ===================================================================
+             CARD: CẤT LINK — CATLINK
+             =================================================================== -->
+        <article 
+          data-app-id="cat-link"
+          data-app-category="productivity" 
+          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-blue-500/25 hover:border-blue-500/60 transition-all duration-500"
+        >
+          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
+          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
+            <img 
+              src="assets/banners/cat-link-header.png" 
+              alt="Cất Link — CatLink Artwork" 
+              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
+              loading="lazy"
+            />
+            <!-- Desktop horizontal gradient (solid left, transparent right) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
+            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
+          </div>
+
+          <!-- Top Meta Row & Left Content -->
+          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img 
+                  src="assets/icons/cat-link.png" 
+                  alt="Cất Link — CatLink icon" 
+                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
+                />
+                <div>
+                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-blue-500/15 text-blue-300 border-blue-500/30 border">
+                      06 / 07 · Action Inbox & Productivity
+                    </span>
+                    <span class="text-xs font-mono text-zinc-400">iOS 17.0+</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
+                    Cất Link — CatLink
+                  </h3>
+                  <p class="text-xs font-mono text-zinc-400 mt-0.5">com.cuongtran.castlink · v1.2</p>
+                </div>
+              </div>
+
+              <!-- Context Status Pill -->
+              <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 text-blue-200 border-blue-500/25 backdrop-blur-md text-xs font-medium border">
+                Nhắc Hẹn 20:00 · Quiet Hours 🌙
+              </span>
+            </div>
+
+            <!-- Quote Tagline -->
+            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
+              “Biến link đã lưu thành việc sẽ làm — Cất link theo ý định & thời điểm.”
+            </blockquote>
+            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
+              Giải pháp lưu link thông minh từ TikTok, Safari, YouTube, Shopee… giúp bạn không bao giờ biến bookmark thành bãi rác lãng quên.
+            </p>
+
+            <!-- Dual Feature Callouts -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-blue-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-400 block mb-1">Share Sheet 1 Chạm Theo Ý Định</span>
+                <p class="text-xs text-zinc-300">Lưu nhanh với 2 câu hỏi cốt lõi: Để làm gì? (Xem/Đọc/Mua/Đi) và Khi nào? (Tối nay/Cuối tuần/Để sau).</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-amber-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">Action Inbox & Tự Động Dọn Dẹp</span>
+                <p class="text-xs text-zinc-300">Sắp xếp 5 tầng ưu tiên; nhắc nhở đúng hẹn 20:00 tôn trọng giờ ngủ; tự động dọn link cũ sau 7/30/90 ngày.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+              <button 
+                type="button" 
+                onclick="openAppDetail('cat-link', event)"
+                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-blue-100 transition-all flex items-center gap-2 shadow-sm"
+              >
+                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <a 
+                href="https://apps.apple.com/vn/app/c%E1%BA%A5t-link/id6802268890"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-1.5 shadow-sm"
+                title="Tải Cất Link trên App Store"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+                </svg>
+                <span>App Store</span>
+              </a>
+            </div>
+            <span class="text-[11px] font-mono text-zinc-400">Swift 6 Concurrency · SwiftData · Local-First</span>
+          </div>
+        </article>
+
+        <!-- ===================================================================
+             CARD: TRANG TRẠI NHÀ TÔI
+             =================================================================== -->
+        <article 
+          data-app-id="trang-trai-nha-toi"
+          data-app-category="life" 
+          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-lime-500/25 hover:border-lime-500/60 transition-all duration-500"
+        >
+          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
+          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
+            <img 
+              src="assets/banners/trang-trai-nha-toi-header.png" 
+              alt="Trang Trại Nhà Tôi Artwork" 
+              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
+              loading="lazy"
+            />
+            <!-- Desktop horizontal gradient (solid left, transparent right) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
+            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
+          </div>
+
+          <!-- Top Meta Row & Left Content -->
+          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img 
+                  src="assets/icons/trang-trai-nha-toi.png" 
+                  alt="Trang Trại Nhà Tôi icon" 
+                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
+                />
+                <div>
+                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-lime-500/15 text-lime-300 border-lime-500/30 border">
+                      07 / 07 · Nông Nghiệp & Senior UX
+                    </span>
+                    <span class="text-xs font-mono text-zinc-400">iOS 17.0+</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
+                    Trang Trại Nhà Tôi
+                  </h3>
+                  <p class="text-xs font-mono text-zinc-400 mt-0.5">com.cuongtran.TrangTraiNhaToi · v1.1</p>
+                </div>
+              </div>
+
+              <!-- Context Status Pill -->
+              <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-lime-500/10 text-lime-200 border-lime-500/25 backdrop-blur-md text-xs font-medium border">
+                Nông Nghiệp Việt · Quyết Toán 0đ Lệch 🌾
+              </span>
+            </div>
+
+            <!-- Quote Tagline -->
+            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
+              “Quản lý lứa nuôi, chi phí và doanh thu dễ dàng cho nhà nông Việt Nam.”
+            </blockquote>
+            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
+              Sổ tay chăn nuôi thiết kế riêng cho người lớn tuổi: chữ to, nút to, nhập liệu bằng giọng nói tiếng Việt on-device, đối chiếu quyết toán chống lệch tiền.
+            </p>
+
+            <!-- Dual Feature Callouts -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-lime-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-lime-400 block mb-1">Nhập Liệu Giọng Nói & Senior UX</span>
+                <p class="text-xs text-zinc-300">Chữ to bản, nút lớn, nói trực tiếp tiếng Việt vào iPhone để ghi chi phí cám, thuốc thú y rảnh tay.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-amber-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">Quyết Toán Chống Lệch & Báo Cáo Zalo</span>
+                <p class="text-xs text-zinc-300">Công thức đối chiếu đa tầng cân xuất, trừ cám tạm ứng, thưởng FCR minh bạch; xuất ảnh báo cáo gửi Zalo 1 chạm.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+              <button 
+                type="button" 
+                onclick="openAppDetail('trang-trai-nha-toi', event)"
+                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-lime-100 transition-all flex items-center gap-2 shadow-sm"
+              >
+                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <a 
+                href="https://apps.apple.com/vn/app/trang-tr%E1%BA%A1i-nh%C3%A0-t%C3%B4i/id6812954623"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-1.5 shadow-sm"
+                title="Tải Trang Trại Nhà Tôi trên App Store"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+                </svg>
+                <span>App Store</span>
+              </a>
+            </div>
+            <span class="text-[11px] font-mono text-zinc-400">100% Offline · On-Device Speech · SwiftData</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       PHILOSOPHY SECTION
+       ========================================================================= -->
+  <section id="values" class="py-20 sm:py-28 border-t border-black/5 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-2 block" data-i18n="valuesTitle">
+          Triết Lý Khác Biệt (Tâm · Mộc · Kỹ)
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-zinc-900 dark:text-white mb-4" data-i18n="valuesSub">
+          Tại sao chúng tôi kiên định xây dựng phần mềm local-first?
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Pillar 1 -->
+        <div class="p-8 rounded-3xl bento-card">
+          <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-lg mb-6 border border-blue-500/20">
+            01
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-3" data-i18n="val1Title">
+            TÂM: Quyền Riêng Tư Là Tối Thượng
+          </h3>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal" data-i18n="val1Desc">
+            Dữ liệu của bạn thuộc về bạn. Chúng tôi không bao giờ thu thập thông tin cá nhân, không bắt buộc tạo tài khoản rườm rà và không bán quảng cáo theo dõi.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="p-8 rounded-3xl bento-card">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg mb-6 border border-amber-500/20">
+            02
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-3" data-i18n="val2Title">
+            MỘC: Đậm Đà Hồn Cốt Đời Sống Việt
+          </h3>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal" data-i18n="val2Desc">
+            Từ tách trà Shan tuyết, câu ca dao cha ông, tiếng chuông xe buýt đến sổ sách của cô chú nông dân — mỗi ứng dụng đều giải quyết bài toán thật của đời sống.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="p-8 rounded-3xl bento-card">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg mb-6 border border-emerald-500/20">
+            03
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-3" data-i18n="val3Title">
+            KỸ: Trải Nghiệm Apple Native Chuẩn Mực
+          </h3>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal" data-i18n="val3Desc">
+            Viết thuần Swift và SwiftUI, khai thác tối đa Widget, Live Activity, WatchKit, Canvas và Dynamic Island để mang lại cảm giác mượt mà trong từng cú chạm.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CREATOR / ABOUT SECTION
+       ========================================================================= -->
+  <section id="creator" class="py-20 sm:py-28 border-t border-black/5 dark:border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bento-card p-6 sm:p-12 flex flex-col md:flex-row items-center gap-6 sm:gap-12">
+        <!-- Avatar Initial / Badge -->
+        <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-3xl bg-gradient-to-tr from-zinc-900 via-zinc-800 to-zinc-700 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-500 p-1 flex-shrink-0 shadow-2xl">
+          <div class="w-full h-full rounded-[22px] bg-zinc-950 dark:bg-zinc-900 flex flex-col items-center justify-center text-white">
+            <span class="text-3xl sm:text-4xl font-black tracking-tighter">TMK</span>
+            <span class="text-[9px] uppercase tracking-widest text-zinc-400 font-mono mt-1">Trần Cường</span>
+          </div>
+        </div>
+
+        <div class="flex-1 text-center md:text-left">
+          <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 block mb-2" data-i18n="creatorRole">
+            iOS & Apple Platforms Developer
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-zinc-900 dark:text-white mb-3" data-i18n="creatorTitle">
+            Về Tác Giả & TMK Studio
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-6 font-normal" data-i18n="creatorBio">
+            Xin chào! Tôi là Trần Cường. Với tình yêu sâu sắc dành cho thiết kế tối giản và hệ sinh thái Apple, tôi sáng lập TMK Studio để xây dựng những sản phẩm độc lập, mộc mạc và bền bỉ theo thời gian.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
+            <a 
+              href="https://apps.apple.com/vn/developer/tran-cuong/id1869197483" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="py-2.5 px-6 rounded-xl text-xs font-bold uppercase tracking-wider bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-all shadow-md flex items-center gap-2"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+              </svg>
+              <span>Apple Developer: Tran Cuong</span>
+            </a>
+            <a 
+              href="mailto:cuongtran17796@gmail.com" 
+              class="py-2.5 px-6 rounded-xl text-xs font-bold uppercase tracking-wider bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-md shadow-blue-500/20 flex items-center gap-2"
+              data-i18n="creatorEmailBtn"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span>Liên Hệ Trực Tiếp</span>
+            </a>
+            <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400 px-3.5 py-2 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10">
+              cuongtran17796@gmail.com
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="py-12 border-t border-black/5 dark:border-white/10 text-xs text-zinc-500 dark:text-zinc-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p data-i18n="footerText">
+        © 2026 TMK Studio. Thiết kế và phát triển bởi Trần Cường.
+      </p>
+      <div class="flex items-center gap-6 font-medium">
+        <a href="#showcase" class="hover:underline" data-i18n="navWork">Hệ Sinh Thái</a>
+        <a href="#values" class="hover:underline" data-i18n="navValues">Triết Lý</a>
+        <a href="#creator" class="hover:underline" data-i18n="navCreator">Tác Giả</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       NATIVE MODAL DIALOG (modern-web-guidance compliant)
+       ========================================================================= -->
+  <dialog 
+    id="app-detail-modal" 
+    closedby="any" 
+    aria-labelledby="modal-app-title"
+    class="w-full max-w-3xl rounded-[32px] overflow-hidden shadow-2xl p-0 bg-[#111116] border border-white/15 text-white"
+  >
+    <div id="modal-content-container">
+      <!-- Injected dynamically by openAppDetail(appId) in app.js -->
+    </div>
+  </dialog>
+
+  <!-- Core Script -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
