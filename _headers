@@ -1,0 +1,16 @@
+# Cloudflare Pages Headers configuration
+
+# Global security headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Static assets long-term caching
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Web fonts CORS
+/assets/fonts/*
+  Access-Control-Allow-Origin: *
+

@@ -4,7 +4,7 @@
 > từ tài liệu nội bộ của 7 ứng dụng. Không chứa secret, bundle ID, hay thông tin nhạy cảm.
 > Cập nhật: 09/11/2026.
 
-Website showcase của portfolio này nằm ở `web/` (mở `web/index.html` là chạy).
+Website showcase của portfolio này nằm ở root (mở `index.html` là chạy).
 
 ---
 

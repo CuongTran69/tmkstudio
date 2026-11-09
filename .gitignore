@@ -1,0 +1,22 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Local Agent / IDE / Tooling Caches
+.claude/
+.gitnexus/
+.idea/
+.vscode/
+*.swp
+
+# Cloudflare & Node artifacts
+.wrangler/
+dist/
+node_modules/
+*.log
+
