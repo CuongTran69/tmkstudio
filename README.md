@@ -28,16 +28,16 @@ Website này là trang showcase chính thức, được xây dựng theo kiến 
 
 ## 📱 Hệ sinh thái ứng dụng TMK Studio
 
-| Ứng dụng | Nền tảng | Thể loại | Điểm nổi bật & Triết lý | App Store |
+| Ứng dụng | Nền tảng | Thể loại | Điểm nổi bật & Triết lý | Tải về / Cài đặt |
 | :--- | :---: | :---: | :--- | :---: |
-| **Trạm Thiền Trà** | iOS 16+ | Lifestyle / Health | Thiền định qua nghi thức uống trà & nhật ký biết ơn phong cách Việt. SwiftData, 6 khung giờ động, privacy-first. | [Xem App](https://apps.apple.com/vn/app/tr%E1%BA%A1m-thi%E1%BB%81n-tr%C3%A0/id6763527107) |
-| **Lời Xưa** | iOS 17+ | Education / Culture | Kho ca dao, tục ngữ, thành ngữ Việt. Thuật toán daily PRNG deterministic, tìm kiếm không dấu, gieo quẻ dân gian. | [Xem App](https://apps.apple.com/vn/app/l%E1%BB%9Di-x%C6%B0a/id6820905528) |
-| **Bus Chill** | iOS 17+ | Navigation | Báo thức ngủ quên trên xe buýt Hà Nội. Geofence 2 tầng + Live Activities + Apple Watch, GTFS SQLite offline-first. | [Xem App](https://apps.apple.com/vn/app/bus-chill/id6787012016) |
-| **Fam Diary** | iOS 17+ | Lifestyle | Nhật ký số an toàn cho gia đình. Mã hoá AES-256 on-device, bảo vệ những kỷ niệm riêng tư nhất. | [Xem App](https://apps.apple.com/vn/app/fam-diary/id6761100455) |
-| **Paletto** | iOS 16+ | Utilities / Design | Trích xuất và kiến tạo bảng màu bằng thuật toán K-Means, kiểm tra độ tương phản WCAG 2.2, xuất 9 định dạng code. | [Xem App](https://apps.apple.com/vn/app/paletto/id6760658459) |
-| **Cất Link** | iOS 17+ | Productivity | Save-for-do: biến link đọc sau thành hành động với Ý định + Thời điểm. Share Extension zero-overhead, dedup thông minh. | [Xem App](https://apps.apple.com/vn/app/c%E1%BA%A5t-link/id6802268890) |
-| **Trang Trại Nhà Tôi** | iOS 17+ | Business / Finance | Sổ thu chi chăn nuôi offline-first cho hộ nhỏ (Vịt/Gà/Lợn). Tính giá hoà vốn, cân bán 2 pha Bì - Gộp, báo cáo Zalo 1 chạm. | [Xem App](https://apps.apple.com/vn/app/trang-tr%E1%BA%A1i-nh%C3%A0-t%C3%B4i/id6812954623) |
-| **TypeMate** | macOS 14+ | Productivity | Text Expander native tối ưu cho bộ gõ tiếng Việt (Telex/VNI/EVKey). Phím tắt `⌥⌘V` Spotlight style, an toàn dữ liệu. | [Chi tiết](docs/PORTFOLIO_OVERVIEW.md#4-typemate--text-expander-cho-macos-macos-14-swift) |
+| **Trạm Thiền Trà** | iOS 16+ | Lifestyle / Health | Thiền định qua nghi thức uống trà & nhật ký biết ơn phong cách Việt. SwiftData, 6 khung giờ động, privacy-first. | [App Store](https://tmkstudio.io.vn/thientra) |
+| **Lời Xưa** | iOS 17+ | Education / Culture | Kho ca dao, tục ngữ, thành ngữ Việt. Thuật toán daily PRNG deterministic, tìm kiếm không dấu, gieo quẻ dân gian. | [App Store](https://tmkstudio.io.vn/loixua) |
+| **Bus Chill** | iOS 17+ | Navigation | Báo thức ngủ quên trên xe buýt Hà Nội. Geofence 2 tầng + Live Activities + Apple Watch, GTFS SQLite offline-first. | [App Store](https://tmkstudio.io.vn/buschill) |
+| **Fam Diary** | iOS 17+ | Lifestyle | Nhật ký số an toàn cho gia đình. Mã hoá AES-256 on-device, bảo vệ những kỷ niệm riêng tư nhất. | [App Store](https://tmkstudio.io.vn/famdiary) |
+| **Paletto** | iOS 16+ | Utilities / Design | Trích xuất và kiến tạo bảng màu bằng thuật toán K-Means, kiểm tra độ tương phản WCAG 2.2, xuất 9 định dạng code. | [App Store](https://tmkstudio.io.vn/paletto) |
+| **TypeMate** | macOS 14+ | Productivity | Text Expander native tối ưu cho bộ gõ tiếng Việt (Telex/VNI/EVKey). Phím tắt `⌥⌘V` Spotlight style, an toàn dữ liệu. | [Tải bản DMG](downloads/TypeMate.dmg) |
+| **Cất Link** | iOS 17+ | Productivity | Save-for-do: biến link đọc sau thành hành động với Ý định + Thời điểm. Share Extension zero-overhead, dedup thông minh. | [App Store](https://tmkstudio.io.vn/catlink) |
+| **Trang Trại Nhà Tôi** | iOS 17+ | Business / Finance | Sổ thu chi chăn nuôi offline-first cho hộ nhỏ (Vịt/Gà/Lợn). Tính giá hoà vốn, cân bán 2 pha Bì - Gộp, báo cáo Zalo 1 chạm. | [App Store](https://tmkstudio.io.vn/trangtrainhatoi) |
 
 ---
 
@@ -54,10 +54,12 @@ Website này là trang showcase chính thức, được xây dựng theo kiến 
 
 ```
 TMKStudio/
-├── index.html                  # Landing page chính (Bento Grid, Modal HIG, Filter, i18n)
+├── index.html                  # Landing page chính (Bento Grid 8 apps, Modal HIG, Filter, i18n)
 ├── 404.html                    # Trang fallback 404 phong cách Dark Theme TMK
 ├── _headers                    # Cấu hình Cache-Control & HTTP Security Headers (Cloudflare Pages)
 ├── .gitignore                  # Bỏ qua file rác macOS & cache cục bộ
+├── downloads/
+│   └── TypeMate.dmg            # Bản cài đặt Universal trực tiếp cho macOS (Chip M & Intel)
 ├── assets/
 │   ├── css/
 │   │   └── style.css           # Custom Glassmorphism, font-face & animations

@@ -84,7 +84,7 @@ const APPS_DATA = [
     icon: "assets/icons/tram-thien-tra.png",
     banner: "assets/banners/tram-thien-tra-header.jpg",
     screenshot: "assets/screens/tram-thien-tra-search.jpg",
-    appStoreUrl: "https://apps.apple.com/vn/app/tr%E1%BA%A1m-thi%E1%BB%81n-tr%C3%A0/id6763527107",
+    appStoreUrl: "https://tmkstudio.io.vn/thientra",
     tagline: {
       vi: "Mỗi ngày, một tách trà… Buông bỏ muộn phiền, tích lũy an vui.",
       en: "Every day, a cup of tea… Release burdens, cultivate inner quietude."
@@ -139,7 +139,7 @@ const APPS_DATA = [
     icon: "assets/icons/loi-xua.png",
     banner: "assets/banners/loi-xua-header.png",
     screenshot: null,
-    appStoreUrl: "https://apps.apple.com/vn/app/l%E1%BB%9Di-x%C6%B0a/id6820905528",
+    appStoreUrl: "https://tmkstudio.io.vn/loixua",
     tagline: {
       vi: "Mỗi ngày một câu hay — Khi cần tra cứu, khi tò mò khám phá văn hóa Việt.",
       en: "A wise saying each day — Discover Vietnamese folk poetry and proverbs."
@@ -194,7 +194,7 @@ const APPS_DATA = [
     icon: "assets/icons/bus-chill.png",
     banner: "assets/banners/bus-chill-header.png",
     screenshot: null,
-    appStoreUrl: "https://apps.apple.com/vn/app/bus-chill/id6787012016",
+    appStoreUrl: "https://tmkstudio.io.vn/buschill",
     tagline: {
       vi: "Đi buýt thảnh thơi, không lo lỡ trạm — Bạn đồng hành xe buýt Hà Nội.",
       en: "Ride the bus in peace — Never miss your stop in Hanoi."
@@ -249,7 +249,7 @@ const APPS_DATA = [
     icon: "assets/icons/fam-diary.png",
     banner: "assets/banners/fam-diary-header.png",
     screenshot: "assets/screens/fam-diary-1.png",
-    appStoreUrl: "https://apps.apple.com/vn/app/fam-diary/id6761100455",
+    appStoreUrl: "https://tmkstudio.io.vn/famdiary",
     tagline: {
       vi: "Nhật ký số an toàn cho cả gia đình — Lưu giữ khoảnh khắc, bảo mật mã hóa AES-256.",
       en: "Your family's private digital diary — AES-256 encrypted, 100% on-device."
@@ -304,7 +304,7 @@ const APPS_DATA = [
     icon: "assets/icons/paletto.png",
     banner: "assets/banners/paletto-header.png",
     screenshot: "assets/screens/paletto-search.png",
-    appStoreUrl: "https://apps.apple.com/vn/app/paletto/id6760658459",
+    appStoreUrl: "https://tmkstudio.io.vn/paletto",
     tagline: {
       vi: "Trích xuất, tạo lập và quản lý bảng màu chuyên nghiệp trên iOS.",
       en: "Extract, create, and manage beautiful color palettes on iOS."
@@ -353,13 +353,14 @@ const APPS_DATA = [
     name: "TypeMate — VietText",
     subtitle: "Native macOS Text Expander",
     bundleId: "com.cuongtran.TypeMate",
-    version: "1.2.0 (macOS TestFlight)",
-    platforms: ["macOS 14+"],
+    version: "1.2.0 (macOS Universal)",
+    platforms: ["macOS 14+ (Apple Silicon & Intel)"],
     category: "productivity",
     icon: "assets/icons/typemate.png",
     banner: "assets/banners/typemate-header.png",
-    screenshot: "assets/screens/typemate-library.png",
-    appStoreUrl: "https://apps.apple.com/vn/developer/tran-cuong/id1869197483",
+    screenshot: "assets/screens/typemate-quickpaste.png",
+    downloadUrl: "downloads/TypeMate.dmg",
+    appStoreUrl: "https://tmkstudio.io.vn/apps",
     tagline: {
       vi: "Ứng dụng gõ tắt native cho macOS — Chung sống hòa bình với bộ gõ tiếng Việt.",
       en: "Native macOS text expander — Harmonious with Vietnamese input methods."
@@ -414,7 +415,7 @@ const APPS_DATA = [
     icon: "assets/icons/cat-link.png",
     banner: "assets/banners/cat-link-header.png",
     screenshot: null,
-    appStoreUrl: "https://apps.apple.com/vn/app/c%E1%BA%A5t-link/id6802268890",
+    appStoreUrl: "https://tmkstudio.io.vn/catlink",
     tagline: {
       vi: "Biến link đã lưu thành việc sẽ làm — Cất link theo ý định & thời điểm.",
       en: "Turn saved links into actions — Save by intent and timing."
@@ -469,7 +470,7 @@ const APPS_DATA = [
     icon: "assets/icons/trang-trai-nha-toi.png",
     banner: "assets/banners/trang-trai-nha-toi-header.png",
     screenshot: "assets/screens/trang-trai-nha-toi-search.png",
-    appStoreUrl: "https://apps.apple.com/vn/app/trang-tr%E1%BA%A1i-nh%C3%A0-t%C3%B4i/id6812954623",
+    appStoreUrl: "https://tmkstudio.io.vn/trangtrainhatoi",
     tagline: {
       vi: "Quản lý lứa nuôi, chi phí và doanh thu dễ dàng cho nhà nông Việt Nam.",
       en: "Effortless livestock batch, expense, and revenue tracking for farmers."
@@ -526,16 +527,16 @@ const I18N = {
     navContact: "Liên Hệ",
     heroPill: "Apple Native · 100% Local-First · Tinh Tế Cho Người Việt",
     heroTitle: "Ứng Dụng Tinh Tế, Phục Vụ Trọn Vẹn Đời Sống Việt",
-    heroLead: "Bộ sưu tập 7 ứng dụng độc lập được thiết kế tỉ mỉ cho hệ sinh thái Apple. Tôn trọng quyền riêng tư tuyệt đối, hoạt động offline mượt mà và mang đậm nét đẹp văn hóa Việt.",
-    heroCtaPrimary: "Khám Phá 7 Ứng Dụng",
+    heroLead: "Bộ sưu tập 8 ứng dụng độc lập được thiết kế tỉ mỉ cho hệ sinh thái Apple. Tôn trọng quyền riêng tư tuyệt đối, hoạt động offline mượt mà và mang đậm nét đẹp văn hóa Việt.",
+    heroCtaPrimary: "Khám Phá 8 Ứng Dụng",
     heroCtaSecondary: "Đọc Triết Lý Sản Phẩm",
-    statItem1: "7 Ứng Dụng Độc Lập",
+    statItem1: "8 Ứng Dụng Độc Lập",
     statItem2: "Không Quảng Cáo Rác",
     statItem3: "100% Local-First",
     statItem4: "Apple Native Swift",
     bentoHeaderTitle: "Bento Showcase",
     bentoHeaderSub: "Mỗi ứng dụng giải quyết trọn vẹn một nhu cầu trong đời sống.",
-    filterAll: "Tất cả (7)",
+    filterAll: "Tất cả (8)",
     filterCulture: "Văn hóa & Tâm hồn",
     filterProductivity: "Năng suất & Tiện ích",
     filterLife: "Đời sống & Thực tế",
@@ -569,16 +570,16 @@ const I18N = {
     navContact: "Contact",
     heroPill: "Apple Native · 100% Local-First · Mindfully Crafted",
     heroTitle: "Thoughtful Apps Crafted for Everyday Life",
-    heroLead: "A suite of 7 independent apps meticulously crafted for Apple platforms. Strict local privacy, offline reliability, and cultural warmth.",
-    heroCtaPrimary: "Explore 7 Apps",
+    heroLead: "A suite of 8 independent apps meticulously crafted for Apple platforms. Strict local privacy, offline reliability, and cultural warmth.",
+    heroCtaPrimary: "Explore 8 Apps",
     heroCtaSecondary: "Our Philosophy",
-    statItem1: "7 Independent Apps",
+    statItem1: "8 Independent Apps",
     statItem2: "Zero Annoying Ads",
     statItem3: "100% Local-First",
     statItem4: "Apple Native Swift",
     bentoHeaderTitle: "Bento Showcase",
     bentoHeaderSub: "Every app solves a genuine need with craftsmanship and care.",
-    filterAll: "All Apps (7)",
+    filterAll: "All Apps (8)",
     filterCulture: "Culture & Soul",
     filterProductivity: "Productivity & Tools",
     filterLife: "Daily Life & Transit",
@@ -1193,7 +1194,7 @@ window.openAppDetail = function(appId, event) {
     </div>
 
     <!-- Modal Footer -->
-    <div class="p-4 sm:p-6 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-3 sm:gap-4">
+    <div class="p-4 sm:p-6 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-3 sm:gap-4 flex-wrap">
       <button 
         type="button" 
         onclick="closeAppDetail()" 
@@ -1202,17 +1203,33 @@ window.openAppDetail = function(appId, event) {
         ${dict.modalClose}
       </button>
 
-      <a 
-        href="${app.appStoreUrl !== '#' ? app.appStoreUrl : 'https://apps.apple.com/vn/developer/tran-cuong/id1869197483'}" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl text-xs font-bold bg-white text-zinc-950 hover:bg-zinc-200 transition-all shadow-lg flex items-center gap-2 whitespace-nowrap"
-      >
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
-        </svg>
-        <span>${dict.cardGetAppStore}</span>
-      </a>
+      <div class="flex items-center gap-2.5 flex-wrap">
+        ${app.downloadUrl ? `
+          <a 
+            href="${app.downloadUrl}" 
+            download="TypeMate.dmg"
+            class="py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-500 transition-all shadow-lg flex items-center gap-2 whitespace-nowrap"
+            title="Tải bản cài đặt DMG trực tiếp (Universal cho cả chip M và Intel)"
+          >
+            <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            <span>${currentLang === 'vi' ? 'Tải bản DMG (Universal: Chip M & Intel)' : 'Download DMG (Apple Silicon & Intel)'}</span>
+          </a>
+        ` : ''}
+
+        <a 
+          href="${app.appStoreUrl !== '#' ? app.appStoreUrl : 'https://tmkstudio.io.vn/apps'}" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl text-xs font-bold ${app.downloadUrl ? 'bg-zinc-800 text-white hover:bg-zinc-700 border border-white/10' : 'bg-white text-zinc-950 hover:bg-zinc-200'} transition-all shadow-lg flex items-center gap-2 whitespace-nowrap"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+          </svg>
+          <span>${app.downloadUrl ? (currentLang === 'vi' ? 'Xem trên App Store' : 'View on App Store') : dict.cardGetAppStore}</span>
+        </a>
+      </div>
     </div>
   `;
 
