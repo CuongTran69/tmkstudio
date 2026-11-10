@@ -74,61 +74,6 @@ const PALETTO_PALETTES = [
 // Master Apps Database with Comprehensive Details & Media
 const APPS_DATA = [
   {
-    id: "tram-thien-tra",
-    name: "Trạm Thiền Trà",
-    subtitle: "Mindful Tea Journaling",
-    bundleId: "com.tramthientra.app",
-    version: "1.0.4",
-    platforms: ["iOS 16+"],
-    category: "culture",
-    icon: "assets/icons/tram-thien-tra.png",
-    banner: "assets/banners/tram-thien-tra-header.jpg",
-    screenshot: "assets/screens/tram-thien-tra-search.jpg",
-    appStoreUrl: "https://tmkstudio.io.vn/thientra",
-    tagline: {
-      vi: "Mỗi ngày, một tách trà… Buông bỏ muộn phiền, tích lũy an vui.",
-      en: "Every day, a cup of tea… Release burdens, cultivate inner quietude."
-    },
-    shortDesc: {
-      vi: "Ứng dụng thiền trà và nhật ký biết ơn lấy cảm hứng từ văn hóa trà Shan tuyết Tây Bắc. Mang lại chốn an trú mộc mạc, tĩnh lặng giữa bộn bề cuộc sống.",
-      en: "Mindfulness and gratitude journaling rooted in Vietnamese Shan snow tea culture. A serene sanctuary to pause and reflect in the digital age."
-    },
-    story: {
-      vi: "Trạm Thiền Trà không cố trở thành một ứng dụng theo dõi y tế hay trị liệu phức tạp. Thay vào đó, app mang đến cảm giác như một buổi sớm ngồi bên hiên nhà gỗ Tây Bắc: nhóm một ấm trà shan tuyết, ngắm làn khói mờ ảo chuyển dần theo ánh nắng trong ngày, ghi lại ba điều mình biết ơn cuộc đời, hoặc viết ra một nỗi muộn phiền rồi để nó tan biến như làn khói không còn lưu vết.",
-      en: "Trạm Thiền Trà refuses clinical jargon and cold wellness dashboards. Instead, it feels like sitting on a wooden porch in the misty mountains of Northwest Vietnam: brewing a pot of wild Shan snow tea, watching steam drift with the changing daylight, recording three daily blessings, or writing down heavy thoughts and watching them dissolve forever."
-    },
-    features: [
-      {
-        title: "Trà Thất Động (Canvas)",
-        titleEn: "Living Tea Room Canvas",
-        desc: "Ấm trà vẽ bằng SwiftUI Canvas bốc khói mộc mạc, đổi màu nền theo 6 khung giờ thực tế: Bình Minh, Sớm Mai, Ban Trưa, Xế Chiều, Hoàng Hôn và Đêm Muộn.",
-        descEn: "Steaming teapot rendered on SwiftUI Canvas, naturally transitioning its ambient colors through 6 real-world day phases."
-      },
-      {
-        title: "Nghi Thức Buông Bỏ (Release)",
-        titleEn: "Burden Release Ritual",
-        desc: "Viết ra phiền muộn rồi nhấn buông — chữ tan biến thành khói trà. Hoàn toàn riêng tư, tuyệt đối không lưu dữ liệu hay gửi đi bất kỳ đâu.",
-        descEn: "Write down frustrations and release them into the mist — text vanishes completely with zero storage or tracking."
-      },
-      {
-        title: "Nghi Thức Tích Luỹ (Gratitude)",
-        titleEn: "Gratitude Journaling",
-        desc: "Ghi chép 3 điều bạn biết ơn mỗi ngày để nuôi dưỡng mầm an yên, xây dựng góc nhìn tích cực bền vững.",
-        descEn: "Capture 3 daily gratitudes to nourish long-term peace of mind and resilience."
-      },
-      {
-        title: "Cây Thiền Streak & Thực Hành Mở Rộng",
-        titleEn: "Zen Tree Streak & Breathwork",
-        desc: "Mầm trà lớn dần qua từng ngày thực hành kiên trì; kèm phòng Thiền Thở nhịp 4-7-8, Phòng Sám Hối, Trà Đêm và Thư Gửi Tương Lai.",
-        descEn: "Your tea sprout grows into a lush bush as you maintain mindful streaks; includes 4-7-8 breathwork and reflection chambers."
-      }
-    ],
-    tech: {
-      stack: "SwiftUI, Canvas 2D, SwiftData, Local Notifications",
-      privacy: "100% Local-First. Zero telemetry. No account required."
-    }
-  },
-  {
     id: "loi-xua",
     name: "Lời Xưa — CaDaoViet",
     subtitle: "Vietnamese Folk Wisdom",
@@ -181,6 +126,117 @@ const APPS_DATA = [
     tech: {
       stack: "SwiftUI, SwiftData, AVSpeechSynthesizer, ImageRenderer",
       privacy: "100% Offline. Zero tracking. No accounts."
+    }
+  },
+  {
+    id: "typemate",
+    name: "TypeMate — VietText",
+    subtitle: "Native macOS Text Expander",
+    bundleId: "com.cuongtran.TypeMate",
+    version: "1.2.0 (macOS Universal)",
+    platforms: ["macOS 14+ (Apple Silicon & Intel)"],
+    category: "productivity",
+    icon: "assets/icons/typemate.png",
+    banner: "assets/banners/typemate-header.png",
+    screenshot: "assets/screens/typemate-quickpaste.png",
+    downloadUrl: "downloads/TypeMate.dmg",
+    appStoreUrl: "https://tmkstudio.io.vn/apps",
+    tagline: {
+      vi: "Ứng dụng gõ tắt native cho macOS — Chung sống hòa bình với bộ gõ tiếng Việt.",
+      en: "Native macOS text expander — Harmonious with Vietnamese input methods."
+    },
+    shortDesc: {
+      vi: "Công cụ mở rộng văn bản tự động trên Mac, cam kết không xung đột với Telex/VNI, dán nhanh ⌥⌘V thần tốc và hỗ trợ chia sẻ gói mẫu .typemate-pack.",
+      en: "Automated text expander for Mac engineered to never clash with Telex/VNI input engines, with instant ⌥⌘V Quick Paste."
+    },
+    story: {
+      vi: "Người dùng Mac tại Việt Nam từ lâu gặp phải nghịch lý: các phần mềm Text Expander nước ngoài khi dùng chung với bộ gõ tiếng Việt (Telex Apple, EVKey, OpenKey) thường xuyên làm nhảy dấu, nhân đôi chữ hoặc nuốt mất ký tự. TypeMate ra đời với triết lý: Toàn vẹn văn bản là số 1 — khi không chắc chắn sẽ không bao giờ can thiệp bừa bãi.",
+      en: "Mac users in Vietnam have long endured a frustrating trade-off: mainstream text expanders routinely break, duplicate characters, or scramble words when paired with Vietnamese input engines (Telex, OpenKey, EVKey). TypeMate was engineered from day one on a sacred rule: Text integrity comes first."
+    },
+    features: [
+      {
+        title: "Bung Chữ Tự Động An Toàn Tuyệt Đối",
+        titleEn: "Conflict-Free Auto Expansion",
+        desc: "Gõ trigger tắt (ví dụ `;stk`, `;email`) và app tự động thay thế nội dung mẫu mà không làm lệch dấu gõ tiếng Việt.",
+        descEn: "Type abbreviations (e.g., `;bank`, `;email`) and watch them expand seamlessly without tone mark disruption."
+      },
+      {
+        title: "Dán Nhanh Thông Minh (⌥⌘V)",
+        titleEn: "Instant Quick Paste (⌥⌘V)",
+        desc: "Bật cửa sổ tra cứu nhanh ở bất kỳ đâu để chọn và chèn câu trả lời mẫu cho CSKH, Telesale, Kế toán trong 1 giây.",
+        descEn: "Summon a lightweight instant search palette anywhere to insert common replies in a split second."
+      },
+      {
+        title: "Biến Động & Con Trỏ Chuẩn",
+        titleEn: "Dynamic Variables & Cursor",
+        desc: "Tự động chèn ngày giờ, nội dung clipboard và đưa con trỏ soạn thảo vào đúng vị trí mong muốn.",
+        descEn: "Auto-insert current date/time, restore clipboard content, and position your cursor precisely."
+      },
+      {
+        title: "Gói Mẫu Nhóm (.typemate-pack)",
+        titleEn: "Team Snippet Packs (.typemate-pack)",
+        desc: "Đóng gói và chia sẻ hàng trăm mẫu câu chuẩn cho phòng ban, nhân viên kinh doanh hoặc CSKH.",
+        descEn: "Import and export curated snippet bundles for entire customer service or sales teams."
+      }
+    ],
+    tech: {
+      stack: "Native Swift & SwiftUI, Accessibility API, Carbon Events",
+      privacy: "100% On-device. Zero network traffic. Zero keylogging."
+    }
+  },
+  {
+    id: "tram-thien-tra",
+    name: "Trạm Thiền Trà",
+    subtitle: "Mindful Tea Journaling",
+    bundleId: "com.tramthientra.app",
+    version: "1.0.4",
+    platforms: ["iOS 16+"],
+    category: "culture",
+    icon: "assets/icons/tram-thien-tra.png",
+    banner: "assets/banners/tram-thien-tra-header.jpg",
+    screenshot: "assets/screens/tram-thien-tra-search.jpg",
+    appStoreUrl: "https://tmkstudio.io.vn/thientra",
+    tagline: {
+      vi: "Mỗi ngày, một tách trà… Buông bỏ muộn phiền, tích lũy an vui.",
+      en: "Every day, a cup of tea… Release burdens, cultivate inner quietude."
+    },
+    shortDesc: {
+      vi: "Ứng dụng thiền trà và nhật ký biết ơn lấy cảm hứng từ văn hóa trà Shan tuyết Tây Bắc. Mang lại chốn an trú mộc mạc, tĩnh lặng giữa bộn bề cuộc sống.",
+      en: "Mindfulness and gratitude journaling rooted in Vietnamese Shan snow tea culture. A serene sanctuary to pause and reflect in the digital age."
+    },
+    story: {
+      vi: "Trạm Thiền Trà không cố trở thành một ứng dụng theo dõi y tế hay trị liệu phức tạp. Thay vào đó, app mang đến cảm giác như một buổi sớm ngồi bên hiên nhà gỗ Tây Bắc: nhóm một ấm trà shan tuyết, ngắm làn khói mờ ảo chuyển dần theo ánh nắng trong ngày, ghi lại ba điều mình biết ơn cuộc đời, hoặc viết ra một nỗi muộn phiền rồi để nó tan biến như làn khói không còn lưu vết.",
+      en: "Trạm Thiền Trà refuses clinical jargon and cold wellness dashboards. Instead, it feels like sitting on a wooden porch in the misty mountains of Northwest Vietnam: brewing a pot of wild Shan snow tea, watching steam drift with the changing daylight, recording three daily blessings, or writing down heavy thoughts and watching them dissolve forever."
+    },
+    features: [
+      {
+        title: "Trà Thất Động (Canvas)",
+        titleEn: "Living Tea Room Canvas",
+        desc: "Ấm trà vẽ bằng SwiftUI Canvas bốc khói mộc mạc, đổi màu nền theo 6 khung giờ thực tế: Bình Minh, Sớm Mai, Ban Trưa, Xế Chiều, Hoàng Hôn và Đêm Muộn.",
+        descEn: "Steaming teapot rendered on SwiftUI Canvas, naturally transitioning its ambient colors through 6 real-world day phases."
+      },
+      {
+        title: "Nghi Thức Buông Bỏ (Release)",
+        titleEn: "Burden Release Ritual",
+        desc: "Viết ra phiền muộn rồi nhấn buông — chữ tan biến thành khói trà. Hoàn toàn riêng tư, tuyệt đối không lưu dữ liệu hay gửi đi bất kỳ đâu.",
+        descEn: "Write down frustrations and release them into the mist — text vanishes completely with zero storage or tracking."
+      },
+      {
+        title: "Nghi Thức Tích Luỹ (Gratitude)",
+        titleEn: "Gratitude Journaling",
+        desc: "Ghi chép 3 điều bạn biết ơn mỗi ngày để nuôi dưỡng mầm an yên, xây dựng góc nhìn tích cực bền vững.",
+        descEn: "Capture 3 daily gratitudes to nourish long-term peace of mind and resilience."
+      },
+      {
+        title: "Cây Thiền Streak & Thực Hành Mở Rộng",
+        titleEn: "Zen Tree Streak & Breathwork",
+        desc: "Mầm trà lớn dần qua từng ngày thực hành kiên trì; kèm phòng Thiền Thở nhịp 4-7-8, Phòng Sám Hối, Trà Đêm và Thư Gửi Tương Lai.",
+        descEn: "Your tea sprout grows into a lush bush as you maintain mindful streaks; includes 4-7-8 breathwork and reflection chambers."
+      }
+    ],
+    tech: {
+      stack: "SwiftUI, Canvas 2D, SwiftData, Local Notifications",
+      privacy: "100% Local-First. Zero telemetry. No account required."
     }
   },
   {
@@ -346,62 +402,6 @@ const APPS_DATA = [
     tech: {
       stack: "SwiftUI, App Group container, AVFoundation, WidgetKit",
       privacy: "100% On-device processing. Camera used strictly for color sampling."
-    }
-  },
-  {
-    id: "typemate",
-    name: "TypeMate — VietText",
-    subtitle: "Native macOS Text Expander",
-    bundleId: "com.cuongtran.TypeMate",
-    version: "1.2.0 (macOS Universal)",
-    platforms: ["macOS 14+ (Apple Silicon & Intel)"],
-    category: "productivity",
-    icon: "assets/icons/typemate.png",
-    banner: "assets/banners/typemate-header.png",
-    screenshot: "assets/screens/typemate-quickpaste.png",
-    downloadUrl: "downloads/TypeMate.dmg",
-    appStoreUrl: "https://tmkstudio.io.vn/apps",
-    tagline: {
-      vi: "Ứng dụng gõ tắt native cho macOS — Chung sống hòa bình với bộ gõ tiếng Việt.",
-      en: "Native macOS text expander — Harmonious with Vietnamese input methods."
-    },
-    shortDesc: {
-      vi: "Công cụ mở rộng văn bản tự động trên Mac, cam kết không xung đột với Telex/VNI, dán nhanh ⌥⌘V thần tốc và hỗ trợ chia sẻ gói mẫu .typemate-pack.",
-      en: "Automated text expander for Mac engineered to never clash with Telex/VNI input engines, with instant ⌥⌘V Quick Paste."
-    },
-    story: {
-      vi: "Người dùng Mac tại Việt Nam từ lâu gặp phải nghịch lý: các phần mềm Text Expander nước ngoài khi dùng chung với bộ gõ tiếng Việt (Telex Apple, EVKey, OpenKey) thường xuyên làm nhảy dấu, nhân đôi chữ hoặc nuốt mất ký tự. TypeMate ra đời với triết lý: Toàn vẹn văn bản là số 1 — khi không chắc chắn sẽ không bao giờ can thiệp bừa bãi.",
-      en: "Mac users in Vietnam have long endured a frustrating trade-off: mainstream text expanders routinely break, duplicate characters, or scramble words when paired with Vietnamese input engines (Telex, OpenKey, EVKey). TypeMate was engineered from day one on a sacred rule: Text integrity comes first."
-    },
-    features: [
-      {
-        title: "Bung Chữ Tự Động An Toàn Tuyệt Đối",
-        titleEn: "Conflict-Free Auto Expansion",
-        desc: "Gõ trigger tắt (ví dụ `;stk`, `;email`) và app tự động thay thế nội dung mẫu mà không làm lệch dấu gõ tiếng Việt.",
-        descEn: "Type abbreviations (e.g., `;bank`, `;email`) and watch them expand seamlessly without tone mark disruption."
-      },
-      {
-        title: "Dán Nhanh Thông Minh (⌥⌘V)",
-        titleEn: "Instant Quick Paste (⌥⌘V)",
-        desc: "Bật cửa sổ tra cứu nhanh ở bất kỳ đâu để chọn và chèn câu trả lời mẫu cho CSKH, Telesale, Kế toán trong 1 giây.",
-        descEn: "Summon a lightweight instant search palette anywhere to insert common replies in a split second."
-      },
-      {
-        title: "Biến Động & Con Trỏ Chuẩn",
-        titleEn: "Dynamic Variables & Cursor",
-        desc: "Tự động chèn ngày giờ, nội dung clipboard và đưa con trỏ soạn thảo vào đúng vị trí mong muốn.",
-        descEn: "Auto-insert current date/time, restore clipboard content, and position your cursor precisely."
-      },
-      {
-        title: "Gói Mẫu Nhóm (.typemate-pack)",
-        titleEn: "Team Snippet Packs (.typemate-pack)",
-        desc: "Đóng gói và chia sẻ hàng trăm mẫu câu chuẩn cho phòng ban, nhân viên kinh doanh hoặc CSKH.",
-        descEn: "Import and export curated snippet bundles for entire customer service or sales teams."
-      }
-    ],
-    tech: {
-      stack: "Native Swift & SwiftUI, Accessibility API, Carbon Events",
-      privacy: "100% On-device. Zero network traffic. Zero keylogging."
     }
   },
   {
@@ -1260,3 +1260,4 @@ window.closeAppDetail = function() {
     document.documentElement.style.scrollBehavior = "";
   }, 120);
 };
+

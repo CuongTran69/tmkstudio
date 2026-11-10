@@ -246,108 +246,6 @@
       <div class="space-y-8 max-w-5xl mx-auto">
         
         <!-- ===================================================================
-             CARD: TRẠM THIỀN TRÀ
-             =================================================================== -->
-        <article 
-          data-app-id="tram-thien-tra"
-          data-app-category="culture" 
-          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-amber-500/25 hover:border-amber-500/60 transition-all duration-500"
-        >
-          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
-          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
-            <img 
-              src="assets/banners/tram-thien-tra-header.jpg" 
-              alt="Trạm Thiền Trà Artwork" 
-              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
-              loading="lazy"
-            />
-            <!-- Desktop horizontal gradient (solid left, transparent right) -->
-            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
-            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
-          </div>
-
-          <!-- Top Meta Row & Left Content -->
-          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
-            <div class="flex items-start justify-between gap-4 mb-6">
-              <div class="flex items-center gap-4">
-                <img 
-                  src="assets/icons/tram-thien-tra.png" 
-                  alt="Trạm Thiền Trà icon" 
-                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
-                />
-                <div>
-                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
-                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border-amber-500/30 border">
-                      01 / 08 · Văn Hóa & Mindfulness
-                    </span>
-                    <span class="text-xs font-mono text-zinc-400">iOS 16.0+</span>
-                  </div>
-                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
-                    Trạm Thiền Trà
-                  </h3>
-                  <p class="text-xs font-mono text-zinc-400 mt-0.5">com.tramthientra.app · v1.0.4</p>
-                </div>
-              </div>
-
-              <!-- Context Status Pill -->
-              <span id="tea-time-phase" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-200 border-amber-500/25 backdrop-blur-md text-xs font-medium border">
-                Trà Thất · Sớm Mai 🍵
-              </span>
-            </div>
-
-            <!-- Quote Tagline -->
-            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
-              “Mỗi ngày, một tách trà… Buông bỏ muộn phiền, tích lũy an vui.”
-            </blockquote>
-            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
-              Thiền trà và nhật ký biết ơn lấy cảm hứng từ văn hóa trà Shan tuyết Tây Bắc. Trà Thất bốc khói bằng SwiftUI Canvas tự đổi màu theo 6 khung giờ thực tế.
-            </p>
-
-            <!-- Dual Feature Callouts -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
-              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-amber-500/20 text-left">
-                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">Nghi thức Buông Bỏ</span>
-                <p class="text-xs text-zinc-300">Viết phiền muộn rồi buông tan như khói trà. Hoàn toàn riêng tư, không lưu dữ liệu.</p>
-              </div>
-              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-emerald-500/20 text-left">
-                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block mb-1">Nghi thức Tích Luỹ</span>
-                <p class="text-xs text-zinc-300">Ghi lại 3 điều biết ơn mỗi ngày; mầm trà Cây Thiền (Streak) lớn dần qua thời gian.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bottom Actions -->
-          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
-            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
-              <button 
-                type="button" 
-                onclick="openAppDetail('tram-thien-tra', event)"
-                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-amber-100 transition-all flex items-center gap-2 shadow-sm"
-              >
-                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
-                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              <a 
-                href="https://tmkstudio.io.vn/thientra"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-1.5 shadow-sm"
-                title="Tải Trạm Thiền Trà trên App Store"
-              >
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
-                </svg>
-                <span>App Store</span>
-              </a>
-            </div>
-            <span class="text-[11px] font-mono text-zinc-400">100% Local-First · SwiftData · SwiftUI Canvas</span>
-          </div>
-        </article>
-
-        <!-- ===================================================================
              CARD: LỜI XƯA — CADAOVIET
              =================================================================== -->
         <article 
@@ -381,7 +279,7 @@
                 <div>
                   <div class="flex items-center gap-2 mb-1.5 flex-wrap">
                     <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-300 border-rose-500/30 border">
-                      02 / 08 · Kho Tàng Dân Gian
+                      01 / 08 · Kho Tàng Dân Gian
                     </span>
                     <span class="text-xs font-mono text-zinc-400">iOS 17.0+</span>
                   </div>
@@ -450,6 +348,209 @@
         </article>
 
         <!-- ===================================================================
+             CARD: TYPEMATE — VIETTEXT (MACOS)
+             =================================================================== -->
+        <article 
+          data-app-id="typemate"
+          data-app-category="productivity" 
+          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-cyan-500/25 hover:border-cyan-500/60 transition-all duration-500"
+        >
+          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
+          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
+            <img 
+              src="assets/banners/typemate-header.png" 
+              alt="TypeMate — VietText Artwork" 
+              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
+              loading="lazy"
+            />
+            <!-- Desktop horizontal gradient (solid left, transparent right) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
+            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
+          </div>
+
+          <!-- Top Meta Row & Left Content -->
+          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img 
+                  src="assets/icons/typemate.png" 
+                  alt="TypeMate icon" 
+                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
+                />
+                <div>
+                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border-cyan-500/30 border">
+                      02 / 08 · macOS Native Text Expander
+                    </span>
+                    <span class="text-xs font-mono text-zinc-400">macOS 14.0+ (Universal)</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
+                    TypeMate — VietText
+                  </h3>
+                  <p class="text-xs font-mono text-zinc-400 mt-0.5">com.cuongtran.TypeMate · v1.2.0 Universal</p>
+                </div>
+              </div>
+
+              <!-- Context Status Pill -->
+              <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-200 border-cyan-500/25 backdrop-blur-md text-xs font-medium border">
+                Không Xung Đột Telex · ⌥⌘V ⚡
+              </span>
+            </div>
+
+            <!-- Quote Tagline -->
+            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
+              “Ứng dụng gõ tắt native cho macOS — Chung sống hòa bình với bộ gõ tiếng Việt.”
+            </blockquote>
+            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
+              Công cụ mở rộng văn bản tự động trên Mac, cam kết không nuốt chữ, không nhảy dấu với Telex/VNI/EVKey, dán nhanh ⌥⌘V thần tốc và hỗ trợ chia sẻ gói mẫu .typemate-pack.
+            </p>
+
+            <!-- Dual Feature Callouts -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-cyan-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 block mb-1">Bung Chữ Tự Động An Toàn</span>
+                <p class="text-xs text-zinc-300">Toàn vẹn văn bản là số 1 — Pipeline SafetyGate thông minh triệt tiêu lỗi nuốt ký tự, nhân đôi chữ khi gõ tiếng Việt.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-emerald-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block mb-1">Bản Cài Đặt Universal (Chip M & Intel)</span>
+                <p class="text-xs text-zinc-300">Tải và cài đặt trực tiếp, tối ưu mượt mà cho cả Mac chip M (Apple Silicon M1/M2/M3/M4) lẫn các dòng Mac Intel.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+              <button 
+                type="button" 
+                onclick="openAppDetail('typemate', event)"
+                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-cyan-100 transition-all flex items-center gap-2 shadow-sm"
+              >
+                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <a 
+                href="downloads/TypeMate.dmg"
+                download="TypeMate.dmg"
+                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-blue-600 hover:bg-blue-500 text-white border border-blue-400/30 transition-all flex items-center gap-1.5 shadow-sm"
+                title="Tải trực tiếp file cài đặt DMG (Universal cho Chip M & Intel)"
+              >
+                <svg class="w-3.5 h-3.5 fill-none stroke-current" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                <span>Tải bản DMG (macOS)</span>
+              </a>
+            </div>
+            <span class="text-[11px] font-mono text-zinc-400">Universal Binary · Apple Silicon & Intel · 3.4 MB</span>
+          </div>
+        </article>
+
+        <!-- ===================================================================
+             CARD: TRẠM THIỀN TRÀ
+             =================================================================== -->
+        <article 
+          data-app-id="tram-thien-tra"
+          data-app-category="culture" 
+          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-amber-500/25 hover:border-amber-500/60 transition-all duration-500"
+        >
+          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
+          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
+            <img 
+              src="assets/banners/tram-thien-tra-header.jpg" 
+              alt="Trạm Thiền Trà Artwork" 
+              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
+              loading="lazy"
+            />
+            <!-- Desktop horizontal gradient (solid left, transparent right) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
+            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
+          </div>
+
+          <!-- Top Meta Row & Left Content -->
+          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="flex items-center gap-4">
+                <img 
+                  src="assets/icons/tram-thien-tra.png" 
+                  alt="Trạm Thiền Trà icon" 
+                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
+                />
+                <div>
+                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border-amber-500/30 border">
+                      03 / 08 · Văn Hóa & Mindfulness
+                    </span>
+                    <span class="text-xs font-mono text-zinc-400">iOS 16.0+</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
+                    Trạm Thiền Trà
+                  </h3>
+                  <p class="text-xs font-mono text-zinc-400 mt-0.5">com.tramthientra.app · v1.0.4</p>
+                </div>
+              </div>
+
+              <!-- Context Status Pill -->
+              <span id="tea-time-phase" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-200 border-amber-500/25 backdrop-blur-md text-xs font-medium border">
+                Trà Thất · Sớm Mai 🍵
+              </span>
+            </div>
+
+            <!-- Quote Tagline -->
+            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
+              “Mỗi ngày, một tách trà… Buông bỏ muộn phiền, tích lũy an vui.”
+            </blockquote>
+            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
+              Thiền trà và nhật ký biết ơn lấy cảm hứng từ văn hóa trà Shan tuyết Tây Bắc. Trà Thất bốc khói bằng SwiftUI Canvas tự đổi màu theo 6 khung giờ thực tế.
+            </p>
+
+            <!-- Dual Feature Callouts -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-amber-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">Nghi thức Buông Bỏ</span>
+                <p class="text-xs text-zinc-300">Viết phiền muộn rồi buông tan như khói trà. Hoàn toàn riêng tư, không lưu dữ liệu.</p>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-emerald-500/20 text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block mb-1">Nghi thức Tích Luỹ</span>
+                <p class="text-xs text-zinc-300">Ghi lại 3 điều biết ơn mỗi ngày; mầm trà Cây Thiền (Streak) lớn dần qua thời gian.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+              <button 
+                type="button" 
+                onclick="openAppDetail('tram-thien-tra', event)"
+                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-amber-100 transition-all flex items-center gap-2 shadow-sm"
+              >
+                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <a 
+                href="https://tmkstudio.io.vn/thientra"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-1.5 shadow-sm"
+                title="Tải Trạm Thiền Trà trên App Store"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+                </svg>
+                <span>App Store</span>
+              </a>
+            </div>
+            <span class="text-[11px] font-mono text-zinc-400">100% Local-First · SwiftData · SwiftUI Canvas</span>
+          </div>
+        </article>
+
+        <!-- ===================================================================
              CARD: BUS CHILL — BUS COMPANION
              =================================================================== -->
         <article 
@@ -483,7 +584,7 @@
                 <div>
                   <div class="flex items-center gap-2 mb-1.5 flex-wrap">
                     <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border-emerald-500/30 border">
-                      03 / 08 · Smart Transit
+                      04 / 08 · Smart Transit
                     </span>
                     <span class="text-xs font-mono text-zinc-400">iOS 16.2+ & watchOS</span>
                   </div>
@@ -551,8 +652,8 @@
           </div>
         </article>
 
-                <!-- ===================================================================
-             CARD: FAM DIARY — PRIVATE DIGITAL FAMILY DIARY
+        <!-- ===================================================================
+             CARD: FAM DIARY
              =================================================================== -->
         <article 
           data-app-id="fam-diary"
@@ -585,7 +686,7 @@
                 <div>
                   <div class="flex items-center gap-2 mb-1.5 flex-wrap">
                     <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-rose-500/15 text-rose-300 border-rose-500/30 border">
-                      04 / 08 · Gia Đình & Bảo Mật AES-256
+                      05 / 08 · Gia Đình & Bảo Mật AES-256
                     </span>
                     <span class="text-xs font-mono text-zinc-400">iOS 17.0+</span>
                   </div>
@@ -687,7 +788,7 @@
                 <div>
                   <div class="flex items-center gap-2 mb-1.5 flex-wrap">
                     <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-violet-500/15 text-violet-300 border-violet-500/30 border">
-                      05 / 08 · Color Studio & Dev Tools
+                      06 / 08 · Color Studio & Dev Tools
                     </span>
                     <span class="text-xs font-mono text-zinc-400">iOS 17.0+</span>
                   </div>
@@ -752,107 +853,6 @@
               </a>
             </div>
             <span class="text-[11px] font-mono text-zinc-400">App Group · WidgetKit · AVFoundation · SwiftUI</span>
-          </div>
-        </article>
-
-        <!-- ===================================================================
-             CARD: TYPEMATE — VIETTEXT (MACOS)
-             =================================================================== -->
-        <article 
-          data-app-id="typemate"
-          data-app-category="productivity" 
-          class="bento-card relative flex flex-col justify-between group min-h-[460px] bg-[#0c0c10] border border-cyan-500/25 hover:border-cyan-500/60 transition-all duration-500"
-        >
-          <!-- Right-Anchored Artwork (Zero Clashing with Text) -->
-          <div class="absolute top-0 right-0 bottom-0 w-full sm:w-[54%] lg:w-[48%] overflow-hidden -z-10 pointer-events-none rounded-r-[28px]">
-            <img 
-              src="assets/banners/typemate-header.png" 
-              alt="TypeMate — VietText Artwork" 
-              class="w-full h-full object-cover object-right opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out" 
-              loading="lazy"
-            />
-            <!-- Desktop horizontal gradient (solid left, transparent right) -->
-            <div class="absolute inset-0 bg-gradient-to-r from-[#0c0c10] via-[#0c0c10]/95 via-35% to-transparent hidden sm:block"></div>
-            <!-- Mobile contrast protection: deep solid dark fade so text never clashes with image -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c10] via-[#0c0c10]/90 to-[#0c0c10]/80 sm:hidden"></div>
-          </div>
-
-          <!-- Top Meta Row & Left Content -->
-          <div class="p-5 sm:p-8 relative z-10 max-w-2xl">
-            <div class="flex items-start justify-between gap-4 mb-6">
-              <div class="flex items-center gap-4">
-                <img 
-                  src="assets/icons/typemate.png" 
-                  alt="TypeMate icon" 
-                  class="w-16 h-16 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
-                />
-                <div>
-                  <div class="flex items-center gap-2 mb-1.5 flex-wrap">
-                    <span class="text-[10px] font-bold font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border-cyan-500/30 border">
-                      06 / 08 · macOS Native Text Expander
-                    </span>
-                    <span class="text-xs font-mono text-zinc-400">macOS 14.0+ (Universal)</span>
-                  </div>
-                  <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight drop-shadow-sm">
-                    TypeMate — VietText
-                  </h3>
-                  <p class="text-xs font-mono text-zinc-400 mt-0.5">com.cuongtran.TypeMate · v1.2.0 Universal</p>
-                </div>
-              </div>
-
-              <!-- Context Status Pill -->
-              <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-200 border-cyan-500/25 backdrop-blur-md text-xs font-medium border">
-                Không Xung Đột Telex · ⌥⌘V ⚡
-              </span>
-            </div>
-
-            <!-- Quote Tagline -->
-            <blockquote data-app-field="tagline" class="text-base sm:text-lg font-serif-culture italic text-zinc-200 mb-4 leading-snug">
-              “Ứng dụng gõ tắt native cho macOS — Chung sống hòa bình với bộ gõ tiếng Việt.”
-            </blockquote>
-            <p data-app-field="shortDesc" class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal">
-              Công cụ mở rộng văn bản tự động trên Mac, cam kết không nuốt chữ, không nhảy dấu với Telex/VNI/EVKey, dán nhanh ⌥⌘V thần tốc và hỗ trợ chia sẻ gói mẫu .typemate-pack.
-            </p>
-
-            <!-- Dual Feature Callouts -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mb-4">
-              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-cyan-500/20 text-left">
-                <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 block mb-1">Bung Chữ Tự Động An Toàn</span>
-                <p class="text-xs text-zinc-300">Toàn vẹn văn bản là số 1 — Pipeline SafetyGate thông minh triệt tiêu lỗi nuốt ký tự, nhân đôi chữ khi gõ tiếng Việt.</p>
-              </div>
-              <div class="p-3.5 rounded-2xl bg-black/50 backdrop-blur-md border border-emerald-500/20 text-left">
-                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block mb-1">Bản Cài Đặt Universal (Chip M & Intel)</span>
-                <p class="text-xs text-zinc-300">Tải và cài đặt trực tiếp, tối ưu mượt mà cho cả Mac chip M (Apple Silicon M1/M2/M3/M4) lẫn các dòng Mac Intel.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bottom Actions -->
-          <div class="p-5 sm:p-8 pt-0 relative z-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-t border-white/10">
-            <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
-              <button 
-                type="button" 
-                onclick="openAppDetail('typemate', event)"
-                class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white text-zinc-950 hover:bg-cyan-100 transition-all flex items-center gap-2 shadow-sm"
-              >
-                <span data-i18n="cardLearnMore">Khám phá chi tiết</span>
-                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              <a 
-                href="downloads/TypeMate.dmg"
-                download="TypeMate.dmg"
-                class="py-2.5 px-3.5 sm:px-4 rounded-xl text-xs font-bold tracking-wider bg-blue-600 hover:bg-blue-500 text-white border border-blue-400/30 transition-all flex items-center gap-1.5 shadow-sm"
-                title="Tải trực tiếp file cài đặt DMG (Universal cho Chip M & Intel)"
-              >
-                <svg class="w-3.5 h-3.5 fill-none stroke-current" stroke-width="2.2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                </svg>
-                <span>Tải bản DMG (macOS)</span>
-              </a>
-            </div>
-            <span class="text-[11px] font-mono text-zinc-400">Universal Binary · Apple Silicon & Intel · 3.4 MB</span>
           </div>
         </article>
 

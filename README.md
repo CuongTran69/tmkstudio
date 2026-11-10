@@ -30,12 +30,12 @@ Website này là trang showcase chính thức, được xây dựng theo kiến 
 
 | Ứng dụng | Nền tảng | Thể loại | Điểm nổi bật & Triết lý | Tải về / Cài đặt |
 | :--- | :---: | :---: | :--- | :---: |
-| **Trạm Thiền Trà** | iOS 16+ | Lifestyle / Health | Thiền định qua nghi thức uống trà & nhật ký biết ơn phong cách Việt. SwiftData, 6 khung giờ động, privacy-first. | [App Store](https://tmkstudio.io.vn/thientra) |
 | **Lời Xưa** | iOS 17+ | Education / Culture | Kho ca dao, tục ngữ, thành ngữ Việt. Thuật toán daily PRNG deterministic, tìm kiếm không dấu, gieo quẻ dân gian. | [App Store](https://tmkstudio.io.vn/loixua) |
+| **TypeMate** | macOS 14+ | Productivity | Text Expander native tối ưu cho bộ gõ tiếng Việt (Telex/VNI/EVKey). Phím tắt `⌥⌘V` Spotlight style, an toàn dữ liệu. | [Tải bản DMG](downloads/TypeMate.dmg) |
+| **Trạm Thiền Trà** | iOS 16+ | Lifestyle / Health | Thiền định qua nghi thức uống trà & nhật ký biết ơn phong cách Việt. SwiftData, 6 khung giờ động, privacy-first. | [App Store](https://tmkstudio.io.vn/thientra) |
 | **Bus Chill** | iOS 17+ | Navigation | Báo thức ngủ quên trên xe buýt Hà Nội. Geofence 2 tầng + Live Activities + Apple Watch, GTFS SQLite offline-first. | [App Store](https://tmkstudio.io.vn/buschill) |
 | **Fam Diary** | iOS 17+ | Lifestyle | Nhật ký số an toàn cho gia đình. Mã hoá AES-256 on-device, bảo vệ những kỷ niệm riêng tư nhất. | [App Store](https://tmkstudio.io.vn/famdiary) |
 | **Paletto** | iOS 16+ | Utilities / Design | Trích xuất và kiến tạo bảng màu bằng thuật toán K-Means, kiểm tra độ tương phản WCAG 2.2, xuất 9 định dạng code. | [App Store](https://tmkstudio.io.vn/paletto) |
-| **TypeMate** | macOS 14+ | Productivity | Text Expander native tối ưu cho bộ gõ tiếng Việt (Telex/VNI/EVKey). Phím tắt `⌥⌘V` Spotlight style, an toàn dữ liệu. | [Tải bản DMG](downloads/TypeMate.dmg) |
 | **Cất Link** | iOS 17+ | Productivity | Save-for-do: biến link đọc sau thành hành động với Ý định + Thời điểm. Share Extension zero-overhead, dedup thông minh. | [App Store](https://tmkstudio.io.vn/catlink) |
 | **Trang Trại Nhà Tôi** | iOS 17+ | Business / Finance | Sổ thu chi chăn nuôi offline-first cho hộ nhỏ (Vịt/Gà/Lợn). Tính giá hoà vốn, cân bán 2 pha Bì - Gộp, báo cáo Zalo 1 chạm. | [App Store](https://tmkstudio.io.vn/trangtrainhatoi) |
 
