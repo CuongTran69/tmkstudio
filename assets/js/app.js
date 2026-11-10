@@ -1064,76 +1064,98 @@ window.openAppDetail = function(appId, event) {
   const container = document.getElementById("modal-content-container");
   if (!app || !modal || !container) return;
 
-  // Capture exact scroll position BEFORE anything else
-  const currentScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
-  document.body.dataset.modalScrollY = String(currentScrollY);
-
-  // Disable smooth scroll completely while modal opens/stays open
-  document.documentElement.classList.remove("scroll-smooth");
-  document.documentElement.style.scrollBehavior = "auto";
-
   const dict = I18N[currentLang];
 
   container.innerHTML = `
-    <!-- Modal Header -->
-    <div class="relative p-5 sm:p-8 border-b border-zinc-200 dark:border-zinc-800">
-      <div class="flex items-start justify-between gap-3 sm:gap-4">
-        <div class="flex items-center gap-3.5 sm:gap-5">
+    <!-- Modal Header (Sticky / flex-shrink-0) -->
+    <div class="flex-shrink-0 p-4 sm:p-5 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/90 dark:bg-[#15151c]/90 backdrop-blur z-20">
+      <div class="flex items-center justify-between gap-3">
+        <!-- App info (icon, title, badges) -->
+        <div class="flex items-center gap-3 sm:gap-4 min-w-0">
           <img 
             src="${app.icon}" 
             alt="${app.name}" 
-            class="w-14 h-14 sm:w-20 sm:h-20 app-squircle object-cover flex-shrink-0 shadow-lg"
+            class="w-12 h-12 sm:w-16 sm:h-16 app-squircle object-cover flex-shrink-0 shadow-md"
           />
-          <div>
-            <div class="flex items-center gap-2 flex-wrap mb-1 sm:mb-1.5">
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap mb-0.5">
               ${app.platforms.map(p => `
-                <span class="text-[10px] sm:text-[11px] font-bold px-2 sm:px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                <span class="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
                   ${p}
                 </span>
               `).join('')}
-              <span class="text-xs font-mono text-zinc-400">
+              <span class="text-[11px] font-mono text-zinc-400">
                 ${app.version}
               </span>
             </div>
-            <h2 id="modal-app-title" class="text-xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white leading-tight">
+            <h2 id="modal-app-title" class="text-base sm:text-xl font-extrabold text-zinc-900 dark:text-white leading-tight truncate">
               ${app.name}
             </h2>
-            <p class="text-[11px] sm:text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-0.5 sm:mt-1 truncate max-w-[220px] sm:max-w-none">
+            <p class="text-[10px] sm:text-xs font-mono text-zinc-500 dark:text-zinc-400 truncate">
               ${app.bundleId}
             </p>
           </div>
         </div>
 
-        <button 
-          type="button" 
-          onclick="closeAppDetail()" 
-          class="p-2 rounded-full text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex-shrink-0"
-          aria-label="${dict.modalClose}"
-        >
-          <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+        <!-- Quick Download CTA & Close Button -->
+        <div class="flex items-center gap-2 flex-shrink-0">
+          ${app.downloadUrl ? `
+            <a 
+              href="${app.downloadUrl}" 
+              download="TypeMate.dmg"
+              class="py-2 px-3 sm:px-4 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-500 transition-all shadow-md flex items-center gap-1.5"
+              title="Tải bản cài đặt DMG trực tiếp (Universal Chip M & Intel)"
+            >
+              <svg class="w-3.5 h-3.5 fill-none stroke-current" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              <span>DMG</span>
+            </a>
+          ` : `
+            <a 
+              href="${app.appStoreUrl !== '#' ? app.appStoreUrl : 'https://tmkstudio.io.vn/apps'}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="py-2 px-3 sm:px-4 rounded-xl text-xs font-bold bg-white text-zinc-950 hover:bg-zinc-200 transition-all shadow-md flex items-center gap-1.5"
+            >
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+              </svg>
+              <span>App Store</span>
+            </a>
+          `}
 
-      <!-- Banner if available -->
-      ${app.banner ? `
-        <div class="mt-4 sm:mt-6 rounded-2xl overflow-hidden border border-zinc-200/60 dark:border-zinc-700/60 shadow-inner">
-          <img src="${app.banner}" alt="${app.name} banner" class="w-full h-36 sm:h-56 object-cover" loading="lazy" />
+          <button 
+            type="button" 
+            onclick="closeAppDetail()" 
+            class="p-2 rounded-full text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors flex-shrink-0"
+            aria-label="${dict.modalClose}"
+          >
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
-      ` : ''}
+      </div>
     </div>
 
-    <!-- Modal Body -->
-    <div class="p-5 sm:p-8 space-y-6 sm:space-y-8 max-h-[65vh] sm:max-h-[60vh] overflow-y-auto">
+    <!-- Modal Scrollable Body (flex: 1 1 0%, min-h-0, overflow-y-auto, overscroll-contain) -->
+    <div class="modal-scrollable-body p-4 sm:p-7 space-y-5 sm:space-y-6">
+      <!-- Banner image if available (inside scrollable body so it doesn't compress modal height) -->
+      ${app.banner ? `
+        <div class="rounded-2xl overflow-hidden border border-zinc-200/60 dark:border-zinc-800 shadow-inner">
+          <img src="${app.banner}" alt="${app.name} banner" class="w-full h-36 sm:h-52 object-cover" loading="lazy" />
+        </div>
+      ` : ''}
+
       <!-- Tagline Callout -->
       <blockquote class="p-4 sm:p-5 rounded-2xl bg-zinc-100/80 dark:bg-zinc-800/60 border-l-4 border-blue-500">
-        <p class="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-100 italic">
+        <p class="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-100 italic leading-relaxed">
           "${app.tagline[currentLang]}"
         </p>
       </blockquote>
 
-      <!-- Story -->
+      <!-- Story / Overview -->
       <div>
         <h3 class="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-2 sm:mb-3">
           ${dict.modalTabOverview}
@@ -1152,7 +1174,7 @@ window.openAppDetail = function(appId, event) {
           ${app.features.map(f => `
             <div class="p-3.5 sm:p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200/60 dark:border-zinc-800/60">
               <h4 class="text-xs font-bold text-zinc-900 dark:text-white mb-1.5 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"></span>
                 <span>${currentLang === 'vi' ? f.title : f.titleEn}</span>
               </h4>
               <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
@@ -1191,30 +1213,71 @@ window.openAppDetail = function(appId, event) {
           </div>
         </div>
       </div>
+
+      <!-- In-Content Download Card (Clear in-body link to download app) -->
+      <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-blue-600/15 via-blue-500/10 to-indigo-600/15 border border-blue-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5">
+        <div>
+          <h4 class="text-sm font-bold text-zinc-900 dark:text-white flex items-center gap-2">
+            <span>${currentLang === 'vi' ? `Tải ngay ứng dụng ${app.name}` : `Get ${app.name} Now`}</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-500 dark:text-blue-400 font-semibold">${app.version}</span>
+          </h4>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1">
+            ${currentLang === 'vi' ? 'Trải nghiệm mượt mà, tối ưu hiệu năng và 100% bảo mật dữ liệu.' : 'Smooth performance, zero tracking, and local-first security.'}
+          </p>
+        </div>
+        <div class="flex items-center gap-2.5 w-full sm:w-auto flex-wrap sm:flex-nowrap">
+          ${app.downloadUrl ? `
+            <a 
+              href="${app.downloadUrl}" 
+              download="TypeMate.dmg"
+              class="flex-1 sm:flex-initial py-2.5 px-4 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-500 transition-all shadow-md flex items-center justify-center gap-2 text-center"
+            >
+              <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              <span>DMG (Chip M & Intel)</span>
+            </a>
+          ` : ''}
+          <a 
+            href="${app.appStoreUrl !== '#' ? app.appStoreUrl : 'https://tmkstudio.io.vn/apps'}" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex-1 sm:flex-initial py-2.5 px-4 rounded-xl text-xs font-bold ${app.downloadUrl ? 'bg-zinc-800 text-white hover:bg-zinc-700 border border-white/10' : 'bg-white text-zinc-950 hover:bg-zinc-200'} transition-all shadow-md flex items-center justify-center gap-2 text-center"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
+            </svg>
+            <span>App Store</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Extra bottom breathing space so nothing is pressed against the footer -->
+      <div class="h-3"></div>
     </div>
 
-    <!-- Modal Footer -->
-    <div class="p-4 sm:p-6 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-3 sm:gap-4 flex-wrap">
+    <!-- Modal Footer (Docked at bottom of modal, flex-shrink-0) -->
+    <div class="flex-shrink-0 p-3.5 sm:p-5 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-[#15151c]/95 backdrop-blur flex items-center justify-between gap-3 flex-wrap z-20">
       <button 
         type="button" 
         onclick="closeAppDetail()" 
-        class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-semibold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+        class="py-2.5 px-4 sm:px-5 rounded-xl text-xs font-semibold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
       >
         ${dict.modalClose}
       </button>
 
-      <div class="flex items-center gap-2.5 flex-wrap">
+      <div class="flex items-center gap-2 flex-wrap">
         ${app.downloadUrl ? `
           <a 
             href="${app.downloadUrl}" 
             download="TypeMate.dmg"
-            class="py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-500 transition-all shadow-lg flex items-center justify-center gap-2 text-center"
+            class="py-2.5 sm:py-3 px-3.5 sm:px-5 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-500 transition-all shadow-lg flex items-center justify-center gap-2 text-center"
             title="Tải bản cài đặt DMG trực tiếp (Universal cho cả chip M và Intel)"
           >
             <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2.2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
             </svg>
-            <span>${currentLang === 'vi' ? 'Tải bản DMG (Universal: Chip M & Intel)' : 'Download DMG (Apple Silicon & Intel)'}</span>
+            <span>${currentLang === 'vi' ? 'Tải DMG (Chip M & Intel)' : 'Download DMG'}</span>
           </a>
         ` : ''}
 
@@ -1222,7 +1285,7 @@ window.openAppDetail = function(appId, event) {
           href="${app.appStoreUrl !== '#' ? app.appStoreUrl : 'https://tmkstudio.io.vn/apps'}" 
           target="_blank" 
           rel="noopener noreferrer"
-          class="py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl text-xs font-bold ${app.downloadUrl ? 'bg-zinc-800 text-white hover:bg-zinc-700 border border-white/10' : 'bg-white text-zinc-950 hover:bg-zinc-200'} transition-all shadow-lg flex items-center justify-center gap-2 text-center"
+          class="py-2.5 sm:py-3 px-3.5 sm:px-5 rounded-xl text-xs font-bold ${app.downloadUrl ? 'bg-zinc-800 text-white hover:bg-zinc-700 border border-white/10' : 'bg-white text-zinc-950 hover:bg-zinc-200'} transition-all shadow-lg flex items-center justify-center gap-2 text-center"
         >
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.66-2.86 1.48-.61.71-1.15 1.87-.99 2.98 1.1.08 2.21-.57 2.85-1.36z"/>
@@ -1234,30 +1297,11 @@ window.openAppDetail = function(appId, event) {
   `;
 
   modal.showModal();
-
-  // Instantly maintain exact scroll position without any movement
-  window.scrollTo(0, currentScrollY);
-
-  // Lock body scroll to prevent background jump/bounce
-  document.body.style.overflow = "hidden";
 };
 
 window.closeAppDetail = function() {
   const modal = document.getElementById("app-detail-modal");
   if (!modal) return;
-
-  const targetY = parseInt(document.body.dataset.modalScrollY || "0", 10);
-
   modal.close();
-  document.body.style.overflow = "";
-
-  // Restore scroll position
-  window.scrollTo(0, targetY);
-
-  // Re-enable smooth scrolling after modal transition
-  setTimeout(() => {
-    document.documentElement.classList.add("scroll-smooth");
-    document.documentElement.style.scrollBehavior = "";
-  }, 120);
 };
 

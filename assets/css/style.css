@@ -194,24 +194,50 @@ body {
 
 /* --------------------------------------------------------------------------
    Modern Dialog Standards (modern-web-guidance)
-   Fixed coordinates to prevent ANY scrolling or jumping on modal trigger
+   Fixed coordinates, flex-column viewport bounding & touch scroll containment
    -------------------------------------------------------------------------- */
+dialog#app-detail-modal:not([open]) {
+  display: none !important;
+}
+
 dialog:modal,
-dialog#app-detail-modal {
+dialog#app-detail-modal[open] {
   position: fixed !important;
   inset: 0 !important;
   margin: auto !important;
-  max-width: 48rem;
-  max-height: 88vh;
+  width: 92vw !important;
+  max-width: 44rem !important;
+  height: 86dvh !important;
+  max-height: 86dvh !important;
   overscroll-behavior: contain;
-  padding: 0;
+  padding: 0 !important;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: #111116 !important;
   color: #f4f4f5;
-  border-radius: 28px;
+  border-radius: 28px !important;
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   outline: none;
   z-index: 99999;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+#modal-content-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.modal-scrollable-body {
+  flex: 1 1 0%;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 html:not(.dark) dialog#app-detail-modal {
@@ -231,10 +257,11 @@ dialog#app-detail-modal::backdrop {
 
 @media (max-width: 640px) {
   dialog:modal,
-  dialog#app-detail-modal {
-    width: calc(100vw - 1.5rem) !important;
-    max-width: calc(100vw - 1.5rem) !important;
-    max-height: 90vh !important;
+  dialog#app-detail-modal[open] {
+    width: calc(100vw - 1.25rem) !important;
+    max-width: calc(100vw - 1.25rem) !important;
+    height: 88dvh !important;
+    max-height: 88dvh !important;
     border-radius: 24px !important;
     margin: auto !important;
   }
