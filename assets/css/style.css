@@ -271,3 +271,32 @@ dialog#app-detail-modal::backdrop {
 .font-mono-code {
   font-family: var(--font-mono);
 }
+
+/* ==========================================================================
+   Typography & Line-break Quality (modern-web-guidance compliant)
+   Prevents awkward line breaks, orphan words, and awkward wraps on mobile
+   ========================================================================== */
+
+/* Balanced wrapping for headlines, blockquotes & titles */
+h1, h2, h3, h4, .text-balance, [data-app-field="tagline"], blockquote {
+  text-wrap: balance;
+  -webkit-text-wrap: balance;
+}
+
+/* Pretty wrapping for paragraphs and descriptions to eliminate runts/orphans */
+p, [data-app-field="shortDesc"], .text-pretty, .callout-desc {
+  text-wrap: pretty;
+  -webkit-text-wrap: pretty;
+}
+
+/* Safe word break for Vietnamese on mobile */
+@media (max-width: 640px) {
+  .bento-card {
+    border-radius: 24px;
+  }
+  
+  blockquote, p {
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+}
