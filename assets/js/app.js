@@ -85,7 +85,7 @@ const APPS_DATA = [
     banner: "assets/banners/loi-xua-header.png",
     screenshot: null,
     appStoreUrl: "https://tmkstudio.io.vn/loixua",
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.cuongtran.loixua",
+    playStoreUrl: "https://tmkstudio.io.vn/loixua-android",
     tagline: {
       vi: "Mỗi ngày một câu hay — Khi cần tra cứu, khi tò mò khám phá văn hóa Việt.",
       en: "A wise saying each day — Discover Vietnamese folk poetry and proverbs."
