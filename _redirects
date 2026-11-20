@@ -1,4 +1,4 @@
-# Cloudflare Pages Redirects / Rewrites
-/d/*               /d/index.html                                                         200
+# Cloudflare Pages / Workers Redirects & Rewrites
+/d/*               /duel.html                                                            200
 /loixua-android    https://play.google.com/store/apps/details?id=com.cuongtran.loixua    302
 /loixua-chplay     https://play.google.com/store/apps/details?id=com.cuongtran.loixua    302
