@@ -18,3 +18,8 @@
 # Web fonts CORS
 /assets/fonts/*
   Access-Control-Allow-Origin: *
+
+# Apple Universal Links (AASA)
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+  Access-Control-Allow-Origin: *

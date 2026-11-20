@@ -79,12 +79,13 @@ const APPS_DATA = [
     subtitle: "Vietnamese Folk Wisdom",
     bundleId: "com.cuongtran.CaDaoViet",
     version: "1.0.2",
-    platforms: ["iOS 17+"],
+    platforms: ["iOS 17+", "Android"],
     category: "culture",
     icon: "assets/icons/loi-xua.png",
     banner: "assets/banners/loi-xua-header.png",
     screenshot: null,
     appStoreUrl: "https://tmkstudio.io.vn/loixua",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.cuongtran.loixua",
     tagline: {
       vi: "Mỗi ngày một câu hay — Khi cần tra cứu, khi tò mò khám phá văn hóa Việt.",
       en: "A wise saying each day — Discover Vietnamese folk poetry and proverbs."
@@ -542,6 +543,7 @@ const I18N = {
     filterLife: "Đời sống & Thực tế",
     cardLearnMore: "Khám phá chi tiết",
     cardGetAppStore: "Tải trên App Store",
+    cardGetPlayStore: "Tải trên Google Play",
     copiedToast: "Đã sao chép vào bộ nhớ tạm!",
     modalTabOverview: "Tổng Quan & Ý Niệm",
     modalTabFeatures: "Tính Năng Cốt Lõi",
@@ -585,6 +587,7 @@ const I18N = {
     filterLife: "Daily Life & Transit",
     cardLearnMore: "Explore Details",
     cardGetAppStore: "Get on App Store",
+    cardGetPlayStore: "Get on Google Play",
     copiedToast: "Copied to clipboard!",
     modalTabOverview: "Overview & Story",
     modalTabFeatures: "Key Features",
@@ -1125,6 +1128,20 @@ window.openAppDetail = function(appId, event) {
             </a>
           `}
 
+          ${app.playStoreUrl ? `
+            <a 
+              href="${app.playStoreUrl}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="py-2 px-3 sm:px-4 rounded-xl text-xs font-bold bg-white text-zinc-950 hover:bg-zinc-200 transition-all shadow-md flex items-center gap-1.5"
+            >
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.94 1.94 0 0 1-.61-1.39V3.204c0-.528.22-1.01.609-1.39zm11.604 11.607l2.258 2.258-12.01 6.863 9.752-9.121zm0-2.842L5.461 1.458l12.01 6.863-2.258 2.258zm1.421 1.421l3.524 2.014c.951.543.951 1.428 0 1.972l-3.524 2.014-2.259-2.259 2.259-2.141z"/>
+              </svg>
+              <span>Google Play</span>
+            </a>
+          ` : ''}
+
           <button 
             type="button" 
             onclick="closeAppDetail()" 
@@ -1249,6 +1266,19 @@ window.openAppDetail = function(appId, event) {
             </svg>
             <span>App Store</span>
           </a>
+          ${app.playStoreUrl ? `
+            <a 
+              href="${app.playStoreUrl}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex-1 sm:flex-initial py-2.5 px-4 rounded-xl text-xs font-bold bg-white text-zinc-950 hover:bg-zinc-200 transition-all shadow-md flex items-center justify-center gap-2 text-center"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.94 1.94 0 0 1-.61-1.39V3.204c0-.528.22-1.01.609-1.39zm11.604 11.607l2.258 2.258-12.01 6.863 9.752-9.121zm0-2.842L5.461 1.458l12.01 6.863-2.258 2.258zm1.421 1.421l3.524 2.014c.951.543.951 1.428 0 1.972l-3.524 2.014-2.259-2.259 2.259-2.141z"/>
+              </svg>
+              <span>Google Play</span>
+            </a>
+          ` : ''}
         </div>
       </div>
 
@@ -1292,6 +1322,20 @@ window.openAppDetail = function(appId, event) {
           </svg>
           <span>${app.downloadUrl ? (currentLang === 'vi' ? 'Xem trên App Store' : 'View on App Store') : dict.cardGetAppStore}</span>
         </a>
+
+        ${app.playStoreUrl ? `
+          <a 
+            href="${app.playStoreUrl}" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="py-2.5 sm:py-3 px-3.5 sm:px-5 rounded-xl text-xs font-bold bg-white text-zinc-950 hover:bg-zinc-200 transition-all shadow-lg flex items-center justify-center gap-2 text-center"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M3.609 1.814L13.792 12 3.61 22.186a1.94 1.94 0 0 1-.61-1.39V3.204c0-.528.22-1.01.609-1.39zm11.604 11.607l2.258 2.258-12.01 6.863 9.752-9.121zm0-2.842L5.461 1.458l12.01 6.863-2.258 2.258zm1.421 1.421l3.524 2.014c.951.543.951 1.428 0 1.972l-3.524 2.014-2.259-2.259 2.259-2.141z"/>
+            </svg>
+            <span>${dict.cardGetPlayStore}</span>
+          </a>
+        ` : ''}
       </div>
     </div>
   `;

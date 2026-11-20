@@ -30,7 +30,7 @@ Website này là trang showcase chính thức, được xây dựng theo kiến 
 
 | Ứng dụng | Nền tảng | Thể loại | Điểm nổi bật & Triết lý | Tải về / Cài đặt |
 | :--- | :---: | :---: | :--- | :---: |
-| **Lời Xưa** | iOS 17+ | Education / Culture | Kho ca dao, tục ngữ, thành ngữ Việt. Thuật toán daily PRNG deterministic, tìm kiếm không dấu, gieo quẻ dân gian. | [App Store](https://tmkstudio.io.vn/loixua) |
+| **Lời Xưa** | iOS 17+ · Android | Education / Culture | Kho ca dao, tục ngữ, thành ngữ Việt. Thuật toán daily PRNG deterministic, tìm kiếm không dấu, gieo quẻ dân gian. | [App Store](https://tmkstudio.io.vn/loixua) · [Google Play](https://play.google.com/store/apps/details?id=com.cuongtran.loixua) |
 | **TypeMate** | macOS 14+ | Productivity | Text Expander native tối ưu cho bộ gõ tiếng Việt (Telex/VNI/EVKey). Phím tắt `⌥⌘V` Spotlight style, an toàn dữ liệu. | [Tải bản DMG](downloads/TypeMate.dmg) |
 | **Trạm Thiền Trà** | iOS 16+ | Lifestyle / Health | Thiền định qua nghi thức uống trà & nhật ký biết ơn phong cách Việt. SwiftData, 6 khung giờ động, privacy-first. | [App Store](https://tmkstudio.io.vn/thientra) |
 | **Bus Chill** | iOS 17+ | Navigation | Báo thức ngủ quên trên xe buýt Hà Nội. Geofence 2 tầng + Live Activities + Apple Watch, GTFS SQLite offline-first. | [App Store](https://tmkstudio.io.vn/buschill) |

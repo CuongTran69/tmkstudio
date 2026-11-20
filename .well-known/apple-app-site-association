@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["QWP9AN675X.com.cuongtran.CaDaoViet"],
+        "components": [
+          { "/": "/d/*", "comment": "Lời mời Đấu nối vế" }
+        ]
+      }
+    ]
+  }
+}
