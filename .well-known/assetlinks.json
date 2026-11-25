@@ -1,0 +1,15 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.cuongtran.loixua",
+      "sha256_cert_fingerprints": [
+        "C9:59:3C:AC:75:C1:2A:F4:49:E8:99:3C:C3:3E:6D:6A:F1:05:3F:4F:4B:B3:78:D0:10:E5:02:13:AC:3A:16:00",
+        "4B:38:09:A8:CA:33:A3:84:6B:CB:7A:33:94:EF:CC:69:F1:04:81:2B:6D:0E:7C:EA:CB:D9:8F:FC:CE:42:12:93",
+        "3B:B1:BB:2F:EA:F9:2C:12:84:AC:D9:C4:3C:1A:0D:69:F0:15:08:B5:A4:83:35:1F:84:7D:77:C9:D2:3E:30:67",
+        "64:8B:E6:A2:92:51:25:D8:2A:06:9A:F5:38:C8:F7:A5:5F:9A:4B:77:97:44:23:C6:74:68:0E:3A:8E:41:9F:11"
+      ]
+    }
+  }
+]
