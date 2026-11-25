@@ -3,3 +3,15 @@
 /d/*               /duel                                                                 302
 /loixua-android    https://play.google.com/store/apps/details?id=com.cuongtran.loixua    302
 /loixua-chplay     https://play.google.com/store/apps/details?id=com.cuongtran.loixua    302
+
+# Install links by channel (C1, 1.0.6). App Store Connect → App Analytics → Sources counts `ct`.
+# Format from App Store Connect → Campaign Generator; `pt` is the provider token (same for every channel).
+# Social bios
+/tiktok            https://apps.apple.com/app/apple-store/id6820905528?pt=128454365&ct=tiktok&mt=8   302
+/youtube           https://apps.apple.com/app/apple-store/id6820905528?pt=128454365&ct=youtube&mt=8   302
+/facebook          https://apps.apple.com/app/apple-store/id6820905528?pt=128454365&ct=facebook&mt=8   302
+# Links shared from inside the app (AppStoreLinks.invite)
+/app/share         https://apps.apple.com/app/apple-store/id6820905528?pt=128454365&ct=share&mt=8   302
+/app/quiz          https://apps.apple.com/app/apple-store/id6820905528?pt=128454365&ct=quiz&mt=8   302
+/app/seal          https://apps.apple.com/app/apple-store/id6820905528?pt=128454365&ct=seal&mt=8   302
+/app/duel          https://apps.apple.com/app/apple-store/id6820905528?pt=128454365&ct=duel&mt=8   302
